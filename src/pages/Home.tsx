@@ -178,15 +178,18 @@ const Home = () => {
       <TestimonialsCarousel />
 
       {/* Contact Form Section */}
-      <section id="contact" className="py-20 bg-background relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${contactBg})` }}
-        >
-          <div className="absolute inset-0 backdrop-blur-md bg-background/80"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto py-16 bg-background/60 backdrop-blur-sm rounded-2xl shadow-lg border border-border/50">
+      <section id="contact" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div 
+            className="max-w-5xl mx-auto py-16 rounded-2xl shadow-lg border border-border/50 relative overflow-hidden"
+          >
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${contactBg})` }}
+            >
+              <div className="absolute inset-0 backdrop-blur-[2px] bg-background/70"></div>
+            </div>
+            <div className="relative z-10">
             <h2 className="text-4xl font-bold text-center mb-3 fade-in">
               {t('contactCtaTitle')}
             </h2>
@@ -254,6 +257,7 @@ const Home = () => {
                   {isSubmitting ? t('sending') : t('send')}
                 </button>
               </form>
+            </div>
             </div>
           </div>
         </div>
