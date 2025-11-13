@@ -20,16 +20,24 @@ const translations = {
     // Hero
     heroTitle: 'Fiecare minut contează',
     heroSubtitle: 'alături de cei dragi',
-    heroDescription: 'Ceasuri 3D handmade pentru cei care prețuiesc timpul și designul excepțional',
     viewModels: 'Vezi modelele',
     
     // About section
-    aboutBrandTitle: 'Pasiune pentru detalii',
-    aboutBrandText: 'Fiecare ceas Twelve este creat cu atenție la detalii, combinând artizanatul local cu design-ul modern. Produsele noastre transformă timpul într-un decor unic pentru casa ta.',
+    aboutBrandTitle: 'Suntem Twelve și dăm viață pereților tăi',
+    aboutBrandText: 'prin ceasuri 3D realizate manual. Personalizăm fiecare model după dorințele tale — cu nume, mesaje, citate sau logoul afacerii tale.',
+    aboutBrandText2: 'Design modern, detalii fine și o notă de emoție în fiecare minut.',
     
     // Popular models
     popularModelsTitle: 'Modele populare',
     viewAllModels: 'Vezi toate modelele',
+    
+    // Testimonials
+    happyCustomers: 'Clienții noștri fericiți',
+    testimonial1: 'Ceasul este superb, este în armonie perfectă cu interiorul! Dar... cel mai mult am rămas plăcut surprinsă de echipa Twelve Clocks! Receptivi, amabili și foarte plăcuți ca oameni! Vă mulțumesc frumos pentru serviciile acordate! Cu siguranță o să vă recomand ori de câte ori voi avea ocazia!',
+    testimonial2: 'Recomand cu cea mai mare încredere — responsabili, punctuali și o atitudine foarte frumoasă față de clienți. Ca sfat: apelați cu instalarea la ei — un specialist se vede când pune mâna! Mulțumesc și vă doresc succese!',
+    testimonial3: 'Foarte frumos ceasul. Băieții foarte receptivi în cazul în care ai nevoie de ajutor. Instrucțiunile clare, ceasul ușor de instalat și calitativ.',
+    testimonial4: 'Ceasul este fenomenal, îmi place enorm! A schimbat complet interiorul odăii noastre. Livrare rapidă, echipă bine organizată. Mulțumim enorm! ❤️🌸👋👍',
+    testimonial5: 'A ajuns ceasul! 😍 Sunt foarte încântată, mama căuta un astfel de model de 3 ani! Calitativ, preț accesibil, ambalat frumos și estetic. Mulțumesc mult!',
     
     // Contact CTA
     contactCtaTitle: 'Hai să creăm ceva special împreună',
@@ -38,6 +46,7 @@ const translations = {
     // Footer
     footerTagline: 'pentru momente care contează',
     followUs: 'Urmărește-ne',
+    privacy: 'Politica de confidențialitate',
     
     // Models page
     modelsPageTitle: 'Colecția noastră',
@@ -82,6 +91,26 @@ const translations = {
     getInTouch: 'Informații de contact',
     address: 'Adresă',
     addressText: 'Chișinău, Moldova',
+    
+    // Privacy Policy
+    privacyTitle: 'Politica de confidențialitate',
+    privacyIntro: 'Confidențialitatea ta este prioritatea noastră. Această politică de confidențialitate explică modul în care colectăm, utilizăm și protejăm informațiile tale personale.',
+    privacySection1Title: '1. Informațiile pe care le colectăm',
+    privacySection1Text: 'Colectăm informații pe care ni le furnizezi direct, precum numele, adresa de email, numărul de telefon și detaliile comenzii atunci când plasezi o comandă sau ne contactezi.',
+    privacySection2Title: '2. Cum folosim informațiile tale',
+    privacySection2Text: 'Utilizăm informațiile tale pentru a procesa comenzile, a îmbunătăți serviciile noastre, a comunica cu tine și a-ți oferi suport clienți.',
+    privacySection3Title: '3. Partajarea informațiilor',
+    privacySection3Text: 'Nu vindem, închiriem sau partajăm informațiile tale personale cu terți, cu excepția cazului în care este necesar pentru procesarea comenzilor tale sau conform legii.',
+    privacySection4Title: '4. Securitatea datelor',
+    privacySection4Text: 'Implementăm măsuri de securitate pentru a proteja informațiile tale împotriva accesului neautorizat, modificării sau divulgării.',
+    privacySection5Title: '5. Cookie-uri',
+    privacySection5Text: 'Site-ul nostru poate utiliza cookie-uri pentru a îmbunătăți experiența ta de navigare și a analiza traficul pe site.',
+    privacySection6Title: '6. Drepturile tale',
+    privacySection6Text: 'Ai dreptul de a accesa, corecta sau șterge informațiile tale personale. Pentru orice solicitare, te rugăm să ne contactezi.',
+    privacySection7Title: '7. Modificări ale politicii',
+    privacySection7Text: 'Ne rezervăm dreptul de a actualiza această politică de confidențialitate. Orice modificare va fi publicată pe această pagină.',
+    privacySection8Title: '8. Contact',
+    privacySection8Text: 'Pentru întrebări sau preocupări legate de confidențialitate, ne poți contacta la adresa de email sau telefon afișată pe pagina de contact.',
   },
   ru: {
     // Navigation
@@ -94,16 +123,24 @@ const translations = {
     // Hero
     heroTitle: 'Каждая минута имеет значение',
     heroSubtitle: 'рядом с близкими',
-    heroDescription: 'Handmade 3D-часы для тех, кто ценит время и исключительный дизайн',
     viewModels: 'Смотреть модели',
     
     // About section
-    aboutBrandTitle: 'Страсть к деталям',
-    aboutBrandText: 'Каждые часы Twelve создаются с вниманием к деталям, сочетая местное ремесло с современным дизайном. Наши изделия превращают время в уникальный декор для вашего дома.',
+    aboutBrandTitle: 'Мы Twelve и оживляем ваши стены',
+    aboutBrandText: 'через 3D-часы, созданные вручную. Мы персонализируем каждую модель по вашему желанию — с именами, сообщениями, цитатами или логотипом вашего бизнеса.',
+    aboutBrandText2: 'Современный дизайн, тонкие детали и нота эмоций в каждой минуте.',
     
     // Popular models
     popularModelsTitle: 'Популярные модели',
     viewAllModels: 'Смотреть все модели',
+    
+    // Testimonials
+    happyCustomers: 'Наши счастливые клиенты',
+    testimonial1: 'Часы великолепны, они прекрасно гармонируют с интерьером! Но... больше всего меня приятно удивила команда Twelve Clocks! Отзывчивые, любезные и очень приятные люди! Большое спасибо за предоставленные услуги! Обязательно буду рекомендовать при каждой возможности!',
+    testimonial2: 'Рекомендую с полной уверенностью — ответственные, пунктуальные и очень приятное отношение к клиентам. Совет: обратитесь к ним для установки — профессионала видно сразу! Спасибо и желаю успехов!',
+    testimonial3: 'Очень красивые часы. Ребята очень отзывчивые, если нужна помощь. Инструкции понятные, часы легко установить и качественные.',
+    testimonial4: 'Часы феноменальны, мне очень нравятся! Они полностью изменили интерьер нашей комнаты. Быстрая доставка, хорошо организованная команда. Огромное спасибо! ❤️🌸👋👍',
+    testimonial5: 'Часы прибыли! 😍 Я очень довольна, мама искала такую модель 3 года! Качественные, доступная цена, красиво и эстетично упакованы. Большое спасибо!',
     
     // Contact CTA
     contactCtaTitle: 'Давайте создадим что-то особенное вместе',
@@ -112,6 +149,7 @@ const translations = {
     // Footer
     footerTagline: 'для моментов, которые имеют значение',
     followUs: 'Следите за нами',
+    privacy: 'Политика конфиденциальности',
     
     // Models page
     modelsPageTitle: 'Наша коллекция',
@@ -156,6 +194,26 @@ const translations = {
     getInTouch: 'Контактная информация',
     address: 'Адрес',
     addressText: 'Кишинев, Молдова',
+    
+    // Privacy Policy
+    privacyTitle: 'Политика конфиденциальности',
+    privacyIntro: 'Ваша конфиденциальность является нашим приоритетом. Эта политика конфиденциальности объясняет, как мы собираем, используем и защищаем вашу личную информацию.',
+    privacySection1Title: '1. Информация, которую мы собираем',
+    privacySection1Text: 'Мы собираем информацию, которую вы предоставляете нам напрямую, такую как имя, адрес электронной почты, номер телефона и детали заказа, когда вы размещаете заказ или связываетесь с нами.',
+    privacySection2Title: '2. Как мы используем вашу информацию',
+    privacySection2Text: 'Мы используем вашу информацию для обработки заказов, улучшения наших услуг, общения с вами и предоставления поддержки клиентам.',
+    privacySection3Title: '3. Обмен информацией',
+    privacySection3Text: 'Мы не продаем, не сдаем в аренду и не передаем вашу личную информацию третьим лицам, за исключением случаев, когда это необходимо для обработки ваших заказов или в соответствии с законом.',
+    privacySection4Title: '4. Безопасность данных',
+    privacySection4Text: 'Мы принимаем меры безопасности для защиты вашей информации от несанкционированного доступа, изменения или раскрытия.',
+    privacySection5Title: '5. Файлы cookie',
+    privacySection5Text: 'Наш сайт может использовать файлы cookie для улучшения вашего опыта просмотра и анализа трафика на сайте.',
+    privacySection6Title: '6. Ваши права',
+    privacySection6Text: 'Вы имеете право получить доступ, исправить или удалить вашу личную информацию. Для любых запросов, пожалуйста, свяжитесь с нами.',
+    privacySection7Title: '7. Изменения политики',
+    privacySection7Text: 'Мы оставляем за собой право обновлять эту политику конфиденциальности. Любые изменения будут опубликованы на этой странице.',
+    privacySection8Title: '8. Контакт',
+    privacySection8Text: 'По вопросам или проблемам, связанным с конфиденциальностью, вы можете связаться с нами по адресу электронной почты или телефону, указанным на странице контактов.',
   },
 };
 
