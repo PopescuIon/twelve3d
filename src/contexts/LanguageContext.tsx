@@ -29,7 +29,7 @@ const translations = {
     
     // Twelve Set
     twelveSetTitle: 'Setul Twelve – Tot ce ai nevoie pentru un ceas gata de perete',
-    twelveSetText: 'Fiecare set Twelve include toate accesoriile necesare pentru instalare rapidă și ușoară, fără ajutorul unui meșter. Piesele vin cu bandă dublu-adezivă, iar suprafețele pieselor și ale acelor cu cerc au peliculă de proiecție, pentru a proteja finisajul până la montaj. Șabloanele precise și instrucțiunile pas cu pas te ajută să montezi ceasul singur, transformând pereții tăi în elemente unice și personalizate.',
+    twelveSetText: 'Fiecare set Twelve include toate accesoriile necesare pentru instalare rapidă și ușoară, fără ajutorul unui meșter. Piesele vin cu bandă dublu-adezivă, iar suprafețele pieselor și ale acelor cu cerc au peliculă de proiecție, pentru a proteja finisajul până la montaj. Șablonul din hartie groasa, pe modelul si diametru solicitat, și instrucțiunea pas cu pas te ajută să montezi ceasul singur, transformând peretele tău în element unic și personalizat.',
     
     // Popular models
     popularModelsTitle: 'Modele populare',
@@ -144,7 +144,7 @@ const translations = {
     
     // Twelve Set
     twelveSetTitle: 'Набор Twelve – Все необходимое для готовых настенных часов',
-    twelveSetText: 'Каждый набор Twelve включает все необходимые аксессуары для быстрой и легкой установки, без помощи мастера. Детали поставляются с двусторонней клейкой лентой, а поверхности деталей и стрелок с кругом имеют защитную пленку для защиты отделки до момента монтажа. Точные шаблоны и пошаговые инструкции помогут вам самостоятельно установить часы, превращая ваши стены в уникальные и персонализированные элементы.',
+    twelveSetText: 'Каждый набор Twelve включает все необходимые аксессуары для быстрой и легкой установки, без помощи мастера. Детали поставляются с двусторонней клейкой лентой, а поверхности деталей и стрелок с кругом имеют защитную пленку для защиты отделки до момента монтажа. Картонный шаблон из плотной бумаги, по запрошенной модели и диаметру, и пошаговая инструкция помогут вам самостоятельно установить часы, превращая вашу стену в уникальный и персонализированный элемент.',
     
     // Popular models
     popularModelsTitle: 'Популярные модели',
