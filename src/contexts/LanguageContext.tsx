@@ -24,8 +24,8 @@ const translations = {
     
     // About section
     aboutBrandTitle: 'Suntem Twelve și dăm viață pereților tăi',
-    aboutBrandText: 'prin ceasuri 3D realizate manual. Personalizăm fiecare model după dorințele tale — cu nume, mesaje, citate sau logoul afacerii tale.',
-    aboutBrandText2: 'Design modern, detalii fine și o notă de emoție în fiecare minut.',
+    aboutBrandText: 'Totul a început din dorința de a aduce un decor deosebit pe pereți, fără tablouri plictisitoare sau abțibilduri banale.',
+    aboutBrandText2: 'Ceasurile Twelve, realizate din sticlă organică de calitate superioară, pot fi personalizate complet cu nume, inscripții sau logoul firmei tale, transformând fiecare perete într-un element unic.',
     
     // Popular models
     popularModelsTitle: 'Modele populare',
@@ -135,8 +135,8 @@ const translations = {
     
     // About section
     aboutBrandTitle: 'Мы Twelve и оживляем ваши стены',
-    aboutBrandText: 'через 3D-часы, созданные вручную. Мы персонализируем каждую модель по вашему желанию — с именами, сообщениями, цитатами или логотипом вашего бизнеса.',
-    aboutBrandText2: 'Современный дизайн, тонкие детали и нота эмоций в каждой минуте.',
+    aboutBrandText: 'Все началось с желания привнести особый декор на стены, без скучных картин или банальных наклеек.',
+    aboutBrandText2: 'Часы Twelve, изготовленные из высококачественного органического стекла, могут быть полностью персонализированы с именами, надписями или логотипом вашей компании, превращая каждую стену в уникальный элемент.',
     
     // Popular models
     popularModelsTitle: 'Популярные модели',
