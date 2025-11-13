@@ -187,7 +187,7 @@ const Home = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${contactBg})` }}
             >
-              <div className="absolute inset-0 backdrop-blur-[2px] bg-background/70"></div>
+              <div className="absolute inset-0 backdrop-blur-sm bg-background/85"></div>
             </div>
             <div className="relative z-10">
             <h2 className="text-4xl font-bold text-center mb-3 fade-in">
