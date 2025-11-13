@@ -14,18 +14,18 @@ const About = () => {
 
         {/* Our Story */}
         <section className="mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="fade-in">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="fade-in pr-8">
               <h2 className="text-4xl font-bold mb-6">{t('ourStory')}</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t('ourStoryText')}
               </p>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden fade-in">
+            <div className="relative h-80 rounded-2xl overflow-hidden fade-in">
               <img
-                src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=800"
-                alt="Our workshop"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                src="/src/assets/about-clocks.png"
+                alt="Twelve clocks"
+                className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
               />
             </div>
           </div>
