@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 import Home from "./pages/Home";
 import Models from "./pages/Models";
 import About from "./pages/About";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
+          <CookieBanner />
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>
