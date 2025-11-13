@@ -4,20 +4,15 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 import contactBg from '@/assets/contact-bg.jpg';
 
 const Contact = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
+  const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -25,21 +20,29 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // TODO: Implement email sending via edge function when RESEND_API_KEY is configured
-      // await supabase.functions.invoke('send-contact-email', { body: formData });
+      if (!formRef.current) return;
+      
+      await emailjs.sendForm(
+        'service_twelve',
+        'template_ilqjnou',
+        formRef.current,
+        'qnNq8OVcXOQrbk9AO'
+      );
       
       toast({
         title: t('messageSent'),
         description: t('messageDescription'),
-        duration: 5000,
+        duration: 4000,
       });
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      
+      formRef.current.reset();
     } catch (error) {
       toast({
         title: t('error') || 'Eroare',
-        description: t('errorDescription') || 'A apărut o eroare.',
+        description: t('errorDescription') || 'A apărut o eroare. Încearcă din nou mai târziu.',
         variant: 'destructive',
       });
+      console.error('EmailJS error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -64,45 +67,33 @@ const Contact = () => {
           
           <div className="relative z-10 max-w-2xl mx-auto px-8 py-16">
             <h2 className="text-3xl font-bold text-center mb-8">{t('contactFormTitle')}</h2>
-            <form onSubmit={handleSubmit} className="space-y-6 bg-background/90 backdrop-blur-md p-8 rounded-2xl shadow-xl">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 bg-background/90 backdrop-blur-md p-8 rounded-2xl shadow-xl">
               <div>
-                <Label htmlFor="name" className="text-foreground">{t('name')}</Label>
+                <Label htmlFor="user_name" className="text-foreground">{t('name')}</Label>
                 <Input
-                  id="name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  id="user_name"
+                  name="user_name"
                   required
                   className="mt-2 bg-background/80"
                 />
               </div>
               <div>
-                <Label htmlFor="email" className="text-foreground">{t('email')}</Label>
+                <Label htmlFor="user_email" className="text-foreground">{t('email')}</Label>
                 <Input
-                  id="email"
+                  id="user_email"
+                  name="user_email"
                   type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
                   className="mt-2 bg-background/80"
                 />
               </div>
               <div>
-                <Label htmlFor="phone" className="text-foreground">{t('phone')}</Label>
+                <Label htmlFor="user_phone" className="text-foreground">{t('phone')}</Label>
                 <Input
-                  id="phone"
+                  id="user_phone"
+                  name="user_phone"
                   type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   required
-                  className="mt-2 bg-background/80"
-                />
-              </div>
-              <div>
-                <Label htmlFor="subject" className="text-foreground">{t('subject')}</Label>
-                <Input
-                  id="subject"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   className="mt-2 bg-background/80"
                 />
               </div>
@@ -110,8 +101,7 @@ const Contact = () => {
                 <Label htmlFor="message" className="text-foreground">{t('message')}</Label>
                 <Textarea
                   id="message"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  name="message"
                   required
                   rows={5}
                   className="mt-2 bg-background/80"
