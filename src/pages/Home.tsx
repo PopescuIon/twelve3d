@@ -102,7 +102,7 @@ const Home = () => {
             ))}
           </div>
           <div className="text-center fade-in">
-            <Button asChild size="lg" variant="outline" className="rounded-full">
+            <Button asChild size="lg" className="rounded-full bg-[#F58835] hover:bg-[#F58835]/90 text-white">
               <Link to="/models">
                 {t('viewAllModels')}
                 <ArrowRight className="ml-2" />
