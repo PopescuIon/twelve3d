@@ -1,18 +1,18 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import modelRetro from '@/assets/model-retro.jpg';
+import modelUnion from '@/assets/model-union.jpg';
+import modelHome from '@/assets/model-home.jpg';
 
 const Models = () => {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('all');
 
   const models = [
-    { id: 1, image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600', category: 'classic' },
-    { id: 2, image: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=600', category: 'modern' },
-    { id: 3, image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600', category: 'custom' },
-    { id: 4, image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?w=600', category: 'classic' },
-    { id: 5, image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600', category: 'modern' },
-    { id: 6, image: 'https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600', category: 'custom' },
+    { id: 1, name: 'Model Retro', image: modelRetro, category: 'classic', price80: 699, price100: 799 },
+    { id: 2, name: 'Model Union', image: modelUnion, category: 'modern', price80: 699, price100: 799 },
+    { id: 3, name: 'Model Retro Home', image: modelHome, category: 'custom', price80: 699, price100: 799 },
   ];
 
   const filteredModels = activeCategory === 'all'
@@ -62,18 +62,26 @@ const Models = () => {
           {filteredModels.map((model, idx) => (
             <div
               key={model.id}
-              className="group relative h-96 rounded-2xl overflow-hidden fade-in cursor-pointer"
+              className="group rounded-2xl overflow-hidden fade-in cursor-pointer bg-background shadow-lg"
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
-              <img
-                src={model.image}
-                alt={`Model ${model.id}`}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="text-xl font-bold">Model {model.id}</h3>
-                  <p className="text-sm">{t(model.category)}</p>
+              <div className="aspect-square overflow-hidden">
+                <img
+                  src={model.image}
+                  alt={model.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-1">{model.name}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{t(model.category)}</p>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground">80 cm</span>
+                  <span className="text-primary font-bold text-lg">{model.price80} lei</span>
+                </div>
+                <div className="flex items-center justify-between text-sm mt-2">
+                  <span className="text-muted-foreground">1 m</span>
+                  <span className="text-primary font-bold text-lg">{model.price100} lei</span>
                 </div>
               </div>
             </div>

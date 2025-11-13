@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Clock, Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
+import logo from '@/assets/logo.png';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -10,9 +12,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-primary mb-4">
-              <Clock className="w-8 h-8" />
-              <span>Twelve</span>
+            <Link to="/" className="flex items-center mb-4">
+              <img src={logo} alt="Twelve" className="h-12 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground">
               Twelve – {t('footerTagline')}
@@ -29,11 +30,11 @@ const Footer = () => {
             <Link to="/about" className="text-sm hover:text-primary transition-colors">
               {t('about')}
             </Link>
-            <Link to="/companies" className="text-sm hover:text-primary transition-colors">
-              {t('companies')}
-            </Link>
             <Link to="/contact" className="text-sm hover:text-primary transition-colors">
               {t('contact')}
+            </Link>
+            <Link to="/privacy" className="text-sm hover:text-primary transition-colors">
+              {t('privacy')}
             </Link>
           </nav>
 
@@ -41,7 +42,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold mb-4">{t('followUs')}</h3>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/twelve_wall_clock/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors"
@@ -49,12 +50,20 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/twelveclocks"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors"
               >
                 <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@twelve.wall.clocks?_t=ZM-8wsF2NKJ7cW&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                <FaTiktok className="w-5 h-5" />
               </a>
             </div>
           </div>
