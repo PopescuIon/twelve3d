@@ -45,7 +45,7 @@ const Footer = () => {
                 href="https://www.instagram.com/twelve_wall_clock/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-primary hover:scale-110 hover:brightness-110 transition-all duration-300"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -53,7 +53,7 @@ const Footer = () => {
                 href="https://www.facebook.com/twelveclocks"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-primary hover:scale-110 hover:brightness-110 transition-all duration-300"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -61,7 +61,7 @@ const Footer = () => {
                 href="https://www.tiktok.com/@twelve.wall.clocks?_t=ZM-8wsF2NKJ7cW&_r=1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-primary hover:scale-110 hover:brightness-110 transition-all duration-300"
               >
                 <FaTiktok className="w-5 h-5" />
               </a>
