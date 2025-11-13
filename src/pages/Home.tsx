@@ -42,21 +42,23 @@ const Home = () => {
       {/* About Brand Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 fade-in max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('aboutBrandTitle')}</h2>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              {t('aboutBrandText')}
-            </p>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              {t('aboutBrandText2')}
-            </p>
-          </div>
-          <div className="relative rounded-2xl overflow-hidden max-w-5xl mx-auto fade-in">
-            <img
-              src={aboutImage}
-              alt="Twelve Clocks Models"
-              className="w-full h-auto"
-            />
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto fade-in">
+            <div className="space-y-6">
+              <h2 className="text-4xl md:text-5xl font-bold">{t('aboutBrandTitle')}</h2>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                {t('aboutBrandText')}
+              </p>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                {t('aboutBrandText2')}
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden fade-in">
+              <img
+                src={packagingImage}
+                alt="Twelve Clocks"
+                className="w-full h-auto max-w-md mx-auto"
+              />
+            </div>
           </div>
         </div>
       </section>

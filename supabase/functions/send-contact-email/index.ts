@@ -9,7 +9,6 @@ interface ContactEmailRequest {
   name: string;
   email: string;
   phone: string;
-  subject?: string;
   message: string;
 }
 
@@ -20,9 +19,9 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { name, email, phone, subject, message }: ContactEmailRequest = await req.json();
+    const { name, email, phone, message }: ContactEmailRequest = await req.json();
     
-    console.log("Received contact form submission:", { name, email, phone, subject });
+    console.log("Received contact form submission:", { name, email, phone });
 
     // TODO: Implement email sending with Resend
     // const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");

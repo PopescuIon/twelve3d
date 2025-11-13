@@ -51,6 +51,7 @@ const translations = {
     // Models page
     modelsPageTitle: 'Colecția noastră',
     modelsPageSubtitle: 'Descoperă ceasurile 3D care transformă orice spațiu',
+    modelsContactTitle: 'Lasă-ne un mesaj și comandă și tu un ceas',
     classic: 'Clasice',
     modern: 'Moderne',
     custom: 'Personalizate',
@@ -161,6 +162,7 @@ const translations = {
     // Models page
     modelsPageTitle: 'Наша коллекция',
     modelsPageSubtitle: 'Откройте для себя 3D-часы, которые преображают любое пространство',
+    modelsContactTitle: 'Оставьте нам сообщение и закажите часы',
     classic: 'Классика',
     modern: 'Современные',
     custom: 'Персонализированные',
