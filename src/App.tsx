@@ -11,7 +11,6 @@ import Home from "./pages/Home";
 import Models from "./pages/Models";
 import About from "./pages/About";
 import Companies from "./pages/Companies";
-import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
@@ -30,7 +29,6 @@ const App = () => (
             <Route path="/models" element={<Models />} />
           <Route path="/about" element={<About />} />
           <Route path="/companies" element={<Companies />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
           </Routes>

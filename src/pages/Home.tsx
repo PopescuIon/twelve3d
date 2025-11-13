@@ -13,6 +13,7 @@ import modelUnion from '@/assets/model-union.jpg';
 import modelHome from '@/assets/model-home.jpg';
 import packagingImage from '@/assets/packaging.jpg';
 import twelveSetImage from '@/assets/twelve-set.jpg';
+import contactBg from '@/assets/contact-bg.jpg';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -177,12 +178,21 @@ const Home = () => {
       <TestimonialsCarousel />
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto py-16 bg-secondary rounded-2xl shadow-lg">
-            <h2 className="text-4xl font-bold text-center mb-12 fade-in">
-              {t('modelsContactTitle')}
+      <section id="contact" className="py-20 bg-background relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${contactBg})` }}
+        >
+          <div className="absolute inset-0 backdrop-blur-md bg-background/80"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto py-16 bg-background/60 backdrop-blur-sm rounded-2xl shadow-lg border border-border/50">
+            <h2 className="text-4xl font-bold text-center mb-3 fade-in">
+              {t('contactCtaTitle')}
             </h2>
+            <p className="text-center text-lg text-muted-foreground mb-12 fade-in">
+              {t('modelsContactTitle')}
+            </p>
             
             <div className="grid md:grid-cols-2 gap-12 items-start px-8">
               {/* Contact Info */}
