@@ -9,6 +9,7 @@ import modelRetro from '@/assets/model-retro.jpg';
 import modelUnion from '@/assets/model-union.jpg';
 import modelHome from '@/assets/model-home.jpg';
 import packagingImage from '@/assets/packaging.jpg';
+import twelveSetImage from '@/assets/twelve-set.jpg';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -108,6 +109,27 @@ const Home = () => {
                 <ArrowRight className="ml-2" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Twelve Set Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto fade-in">
+            <div className="relative rounded-2xl overflow-hidden fade-in order-2 md:order-1">
+              <img
+                src={twelveSetImage}
+                alt="Twelve Set"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="space-y-6 order-1 md:order-2">
+              <h2 className="text-4xl md:text-5xl font-bold">{t('twelveSetTitle')}</h2>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                {t('twelveSetText')}
+              </p>
+            </div>
           </div>
         </div>
       </section>

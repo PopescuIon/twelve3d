@@ -27,6 +27,10 @@ const translations = {
     aboutBrandText: 'Totul a început din dorința de a aduce un decor deosebit pe pereți, fără tablouri plictisitoare sau abțibilduri banale.',
     aboutBrandText2: 'Ceasurile Twelve, realizate din sticlă organică de calitate superioară, pot fi personalizate complet cu nume, inscripții sau logoul firmei tale, transformând fiecare perete într-un element unic.',
     
+    // Twelve Set
+    twelveSetTitle: 'Setul Twelve – Tot ce ai nevoie pentru un ceas gata de perete',
+    twelveSetText: 'Fiecare set Twelve include toate accesoriile necesare pentru instalare rapidă și ușoară, fără ajutorul unui meșter. Piesele vin cu bandă dublu-adezivă, iar suprafețele pieselor și ale acelor cu cerc au peliculă de proiecție, pentru a proteja finisajul până la montaj. Șabloanele precise și instrucțiunile pas cu pas te ajută să montezi ceasul singur, transformând pereții tăi în elemente unice și personalizate.',
+    
     // Popular models
     popularModelsTitle: 'Modele populare',
     viewAllModels: 'Vezi toate modelele',
@@ -137,6 +141,10 @@ const translations = {
     aboutBrandTitle: 'Мы Twelve и оживляем ваши стены',
     aboutBrandText: 'Все началось с желания привнести особый декор на стены, без скучных картин или банальных наклеек.',
     aboutBrandText2: 'Часы Twelve, изготовленные из высококачественного органического стекла, могут быть полностью персонализированы с именами, надписями или логотипом вашей компании, превращая каждую стену в уникальный элемент.',
+    
+    // Twelve Set
+    twelveSetTitle: 'Набор Twelve – Все необходимое для готовых настенных часов',
+    twelveSetText: 'Каждый набор Twelve включает все необходимые аксессуары для быстрой и легкой установки, без помощи мастера. Детали поставляются с двусторонней клейкой лентой, а поверхности деталей и стрелок с кругом имеют защитную пленку для защиты отделки до момента монтажа. Точные шаблоны и пошаговые инструкции помогут вам самостоятельно установить часы, превращая ваши стены в уникальные и персонализированные элементы.',
     
     // Popular models
     popularModelsTitle: 'Популярные модели',
