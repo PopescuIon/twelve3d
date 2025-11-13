@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import logo from '@/assets/logo.png';
@@ -6,8 +6,21 @@ import logo from '@/assets/logo.png';
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -42,14 +55,13 @@ const Header = () => {
             >
               {t('about')}
             </Link>
-            <Link
-              to="/contact"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive('/contact') ? 'text-primary' : 'text-foreground'
-              }`}
+            <a
+              href="#contact"
+              onClick={handleContactClick}
+              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
               {t('contact')}
-            </Link>
+            </a>
           </nav>
 
           <div className="flex items-center gap-3">
