@@ -2,10 +2,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import emailjs from '@emailjs/browser';
 import modelRetro from '@/assets/model-retro.jpg';
 import modelUnion from '@/assets/model-union.jpg';
 import modelHome from '@/assets/model-home.jpg';
@@ -13,14 +13,9 @@ import modelHome from '@/assets/model-home.jpg';
 const Models = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
   const [activeCategory, setActiveCategory] = useState('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
 
   const models = [
     { id: 1, name: 'Model Retro', image: modelRetro, category: 'classic', price80: 699, price100: 799 },
@@ -37,23 +32,27 @@ const Models = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
-      });
-
-      if (error) throw error;
+      if (!formRef.current) return;
+      
+      await emailjs.sendForm(
+        'service_twelve',
+        'template_ilqjnou',
+        formRef.current,
+        'qnNq8OVcXOQrbk9AO'
+      );
 
       toast({
         title: t('messageSent'),
         description: t('messageDescription'),
+        duration: 4000,
       });
 
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      formRef.current.reset();
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('EmailJS error:', error);
       toast({
         title: t('error'),
-        description: t('errorDescription'),
+        description: t('errorDescription') || 'A apărut o eroare. Încearcă din nou mai târziu.',
         variant: 'destructive',
       });
     } finally {
@@ -160,13 +159,12 @@ const Models = () => {
               </div>
 
               {/* Contact Form */}
-              <form onSubmit={handleSubmit} className="space-y-4 fade-in">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 fade-in">
                 <div>
                   <Input
                     type="text"
+                    name="user_name"
                     placeholder={t('name')}
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
                     className="w-full"
                   />
@@ -174,9 +172,8 @@ const Models = () => {
                 <div>
                   <Input
                     type="email"
+                    name="user_email"
                     placeholder={t('email')}
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                     className="w-full"
                   />
@@ -184,18 +181,16 @@ const Models = () => {
                 <div>
                   <Input
                     type="tel"
+                    name="user_phone"
                     placeholder={t('phone')}
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
                     className="w-full"
                   />
                 </div>
                 <div>
                   <Textarea
+                    name="message"
                     placeholder={t('message')}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     className="w-full min-h-[120px]"
                   />
