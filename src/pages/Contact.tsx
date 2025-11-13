@@ -1,8 +1,4 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -67,54 +63,42 @@ const Contact = () => {
           
           <div className="relative z-10 max-w-2xl mx-auto px-8 py-16">
             <h2 className="text-3xl font-bold text-center mb-8">{t('contactFormTitle')}</h2>
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 bg-background/90 backdrop-blur-md p-8 rounded-2xl shadow-xl">
-              <div>
-                <Label htmlFor="user_name" className="text-foreground">{t('name')}</Label>
-                <Input
-                  id="user_name"
-                  name="user_name"
-                  required
-                  className="mt-2 bg-background/80"
-                />
-              </div>
-              <div>
-                <Label htmlFor="user_email" className="text-foreground">{t('email')}</Label>
-                <Input
-                  id="user_email"
-                  name="user_email"
-                  type="email"
-                  required
-                  className="mt-2 bg-background/80"
-                />
-              </div>
-              <div>
-                <Label htmlFor="user_phone" className="text-foreground">{t('phone')}</Label>
-                <Input
-                  id="user_phone"
-                  name="user_phone"
-                  type="tel"
-                  required
-                  className="mt-2 bg-background/80"
-                />
-              </div>
-              <div>
-                <Label htmlFor="message" className="text-foreground">{t('message')}</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  className="mt-2 bg-background/80"
-                />
-              </div>
-              <Button 
-                type="submit" 
-                size="lg" 
+            <form ref={formRef} id="contact-form" onSubmit={handleSubmit} className="space-y-6 bg-background/90 backdrop-blur-md p-8 rounded-2xl shadow-xl">
+              <input 
+                type="text" 
+                name="user_name" 
+                placeholder={t('name')}
+                required
+                className="w-full px-4 py-3 rounded-md border border-input bg-background/80 text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              />
+              <input 
+                type="email" 
+                name="user_email" 
+                placeholder={t('email')}
+                required
+                className="w-full px-4 py-3 rounded-md border border-input bg-background/80 text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              />
+              <input 
+                type="tel" 
+                name="user_phone" 
+                placeholder={t('phone')}
+                required
+                className="w-full px-4 py-3 rounded-md border border-input bg-background/80 text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              />
+              <textarea 
+                name="message" 
+                placeholder={t('message')}
+                required
+                rows={5}
+                className="w-full px-4 py-3 rounded-md border border-input bg-background/80 text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none"
+              />
+              <button 
+                type="submit"
                 disabled={isSubmitting}
-                className="w-full rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="w-full px-6 py-3 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? t('sending') : t('send')}
-              </Button>
+              </button>
             </form>
           </div>
         </div>

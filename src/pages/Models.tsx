@@ -1,7 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { useState, useRef } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -159,50 +157,42 @@ const Models = () => {
               </div>
 
               {/* Contact Form */}
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 fade-in">
-                <div>
-                  <Input
-                    type="text"
-                    name="user_name"
-                    placeholder={t('name')}
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="email"
-                    name="user_email"
-                    placeholder={t('email')}
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="tel"
-                    name="user_phone"
-                    placeholder={t('phone')}
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    name="message"
-                    placeholder={t('message')}
-                    required
-                    className="w-full min-h-[120px]"
-                  />
-                </div>
-                <Button
+              <form ref={formRef} id="contact-form" onSubmit={handleSubmit} className="space-y-4 fade-in">
+                <input 
+                  type="text" 
+                  name="user_name" 
+                  placeholder={t('name')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <input 
+                  type="email" 
+                  name="user_email" 
+                  placeholder={t('email')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <input 
+                  type="tel" 
+                  name="user_phone" 
+                  placeholder={t('phone')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <textarea 
+                  name="message" 
+                  placeholder={t('message')}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none min-h-[120px]"
+                />
+                <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300"
-                  size="lg"
+                  className="w-full px-6 py-3 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? t('sending') : t('send')}
-                </Button>
+                </button>
               </form>
             </div>
           </div>
