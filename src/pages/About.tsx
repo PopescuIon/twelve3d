@@ -1,8 +1,48 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Palette, Wrench, CheckCircle } from 'lucide-react';
+import { Palette, Wrench, CheckCircle, Mail, Phone } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
+import packagingImage from '@/assets/packaging.jpg';
 
 const About = () => {
   const { t } = useLanguage();
+  const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      if (!formRef.current) return;
+      
+      await emailjs.sendForm(
+        'service_twelve',
+        'template_ilqjnou',
+        formRef.current,
+        'qnNq8OVcXOQrbk9AO'
+      );
+
+      toast({
+        title: t('messageSent'),
+        description: t('messageDescription'),
+        duration: 4000,
+      });
+
+      formRef.current.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: t('error'),
+        description: t('errorDescription') || 'A apărut o eroare. Încearcă din nou mai târziu.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen pt-24 pb-12">
@@ -23,8 +63,8 @@ const About = () => {
             </div>
             <div className="relative h-80 rounded-2xl overflow-hidden fade-in">
               <img
-                src="/src/assets/about-clocks.png"
-                alt="Twelve clocks"
+                src={packagingImage}
+                alt="Twelve packaging"
                 className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
               />
             </div>
@@ -59,6 +99,77 @@ const About = () => {
                 <h3 className="text-2xl font-bold mb-4">{t('step3Title')}</h3>
                 <p className="text-muted-foreground">{t('step3Text')}</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="mt-20 py-16 bg-background rounded-2xl shadow-lg">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12 fade-in">
+              {t('modelsContactTitle')}
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Contact Info */}
+              <div className="space-y-8 fade-in">
+                <div>
+                  <h3 className="text-xl font-semibold mb-6">{t('getInTouch')}</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 group">
+                      <Mail className="w-5 h-5 text-primary transition-transform group-hover:scale-110" />
+                      <a href="mailto:twelve.ceasuri.perete@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                        twelve.ceasuri.perete@gmail.com
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-3 group">
+                      <Phone className="w-5 h-5 text-primary transition-transform group-hover:scale-110" />
+                      <a href="tel:+373605920006" className="text-muted-foreground hover:text-primary transition-colors">
+                        +373 605 92 006
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <form ref={formRef} id="contact-form" onSubmit={handleSubmit} className="space-y-4 fade-in">
+                <input 
+                  type="text" 
+                  name="user_name" 
+                  placeholder={t('name')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <input 
+                  type="email" 
+                  name="user_email" 
+                  placeholder={t('email')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <input 
+                  type="tel" 
+                  name="user_phone" 
+                  placeholder={t('phone')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <textarea 
+                  name="message" 
+                  placeholder={t('message')}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none min-h-[120px]"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full px-6 py-3 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? t('sending') : t('send')}
+                </button>
+              </form>
             </div>
           </div>
         </section>
