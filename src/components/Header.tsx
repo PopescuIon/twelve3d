@@ -52,7 +52,7 @@ const Header = () => {
             </Link>
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Button
               variant={language === 'ro' ? 'default' : 'ghost'}
               size="sm"
@@ -69,6 +69,12 @@ const Header = () => {
             >
               RU
             </Button>
+            <a 
+              href="tel:+37360592006" 
+              className="px-4 py-2 bg-[#F58835] text-white rounded-full text-sm font-medium hover:bg-[#F58835]/90 transition-colors"
+            >
+              +373 60 592 006
+            </a>
           </div>
         </div>
       </div>
