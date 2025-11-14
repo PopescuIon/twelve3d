@@ -23,9 +23,9 @@ import modelHomeclock from '@/assets/model-homeclock.jpg';
 import modelHomesweet from '@/assets/model-homesweet.jpg';
 
 // Import corporate images
-import corporate1 from '@/assets/corporate-1.jpg';
-import corporate2 from '@/assets/corporate-2.jpg';
-import corporate3 from '@/assets/corporate-3.jpg';
+import corporate1 from '@/assets/corporate-5.jpg';
+import corporate2 from '@/assets/corporate-6.jpg';
+import corporate3 from '@/assets/corporate-7.jpg';
 import corporate4 from '@/assets/corporate-4.jpg';
 
 const Models = () => {
@@ -101,65 +101,86 @@ const Models = () => {
   };
 
   const ContactForm = () => (
-    <section id="contact" className="mt-24 py-12 px-4 md:px-8 rounded-2xl fade-in">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">{t('modelsContactTitle')}</h2>
-        <div className="space-y-6 mb-8 text-center">
-          <a href="mailto:twelve.clock@yahoo.com" className="flex items-center justify-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-            <Mail className="h-5 w-5" />
-            <span>twelve.clock@yahoo.com</span>
-          </a>
-          <a href="tel:+37360592006" className="flex items-center justify-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-            <Phone className="h-5 w-5" />
-            <span>+373 60 592 006</span>
-          </a>
-        </div>
-        
+    <section id="contact" className="py-20 bg-background mt-12">
+      <div className="container mx-auto px-4">
         <div 
-          className="relative rounded-2xl p-8 backdrop-blur-md bg-background/85"
-          style={{
-            backgroundImage: `url(${contactBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+          className="max-w-5xl mx-auto py-16 rounded-2xl shadow-lg border border-border/50 relative overflow-hidden"
         >
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${contactBg})` }}
+          >
+            <div className="absolute inset-0 backdrop-blur-sm bg-background/85"></div>
+          </div>
           <div className="relative z-10">
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                name="from_name"
-                placeholder={t('yourName') || 'Numele tău'}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-background/90 border border-border focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <input
-                type="email"
-                name="user_email"
-                placeholder="Email"
-                required
-                className="w-full px-4 py-3 rounded-lg bg-background/90 border border-border focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <input
-                type="tel"
-                name="user_phone"
-                placeholder={t('phone') || 'Telefon'}
-                className="w-full px-4 py-3 rounded-lg bg-background/90 border border-border focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <textarea
-                name="message"
-                placeholder={t('message') || 'Mesaj'}
-                rows={4}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-background/90 border border-border focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-              />
-              <Button 
-                type="submit" 
-                className="w-full"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? t('sending') || 'Se trimite...' : t('sendMessage') || 'Trimite mesajul'}
-              </Button>
-            </form>
+            <h2 className="text-4xl font-bold text-center mb-3 fade-in">
+              {t('contactCtaTitle')}
+            </h2>
+            <p className="text-center text-lg text-muted-foreground mb-12 fade-in">
+              {t('modelsContactTitle')}
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-start px-8">
+              {/* Contact Info */}
+              <div className="space-y-8 fade-in">
+                <div>
+                  <h3 className="text-xl font-semibold mb-6">{t('getInTouch')}</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 group">
+                      <Mail className="w-5 h-5 text-primary transition-transform group-hover:scale-110" />
+                      <a href="mailto:twelve.ceasuri.perete@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                        twelve.ceasuri.perete@gmail.com
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-3 group">
+                      <Phone className="w-5 h-5 text-primary transition-transform group-hover:scale-110" />
+                      <a href="tel:+373605920006" className="text-muted-foreground hover:text-primary transition-colors">
+                        +373 605 92 006
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <form ref={formRef} id="contact-form" onSubmit={handleSubmit} className="space-y-4 fade-in">
+                <input 
+                  type="text" 
+                  name="user_name" 
+                  placeholder={t('name')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <input 
+                  type="email" 
+                  name="user_email" 
+                  placeholder={t('email')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <input 
+                  type="tel" 
+                  name="user_phone" 
+                  placeholder={t('phone')}
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                />
+                <textarea 
+                  name="message" 
+                  placeholder={t('message')}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none min-h-[120px]"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full px-6 py-3 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? t('sending') : t('send')}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
