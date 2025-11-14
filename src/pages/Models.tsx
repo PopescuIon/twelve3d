@@ -6,6 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 import ImageModal from '@/components/ImageModal';
 import contactBg from '@/assets/contact-bg.jpg';
+import { z } from 'zod';
 
 // Import all model images
 import modelRetroCustom from '@/assets/model-retro-custom.jpg';
@@ -59,12 +60,39 @@ const Models = () => {
     { id: 4, name: 'Stomatology', image: corporate4 },
   ];
 
+  const contactSchema = z.object({
+    from_name: z.string().trim().min(1, 'Numele este obligatoriu').max(100, 'Numele trebuie să aibă maxim 100 caractere'),
+    from_email: z.string().trim().email('Email invalid').max(255, 'Email-ul trebuie să aibă maxim 255 caractere'),
+    from_phone: z.string().trim().min(1, 'Telefonul este obligatoriu').max(20, 'Telefonul trebuie să aibă maxim 20 caractere'),
+    message: z.string().trim().min(1, 'Mesajul este obligatoriu').max(1000, 'Mesajul trebuie să aibă maxim 1000 caractere'),
+  });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
       if (!formRef.current) return;
+      
+      const formData = new FormData(formRef.current);
+      const data = {
+        from_name: formData.get('from_name') as string,
+        from_email: formData.get('from_email') as string,
+        from_phone: formData.get('from_phone') as string,
+        message: formData.get('message') as string,
+      };
+
+      const result = contactSchema.safeParse(data);
+      if (!result.success) {
+        const firstError = result.error.errors[0];
+        toast({
+          title: 'Eroare validare',
+          description: firstError.message,
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
+      }
       
       await emailjs.sendForm(
         'service_twelve',
@@ -81,7 +109,6 @@ const Models = () => {
 
       formRef.current.reset();
     } catch (error) {
-      console.error('EmailJS error:', error);
       toast({
         title: t('error'),
         description: t('errorDescription') || 'A apărut o eroare. Încearcă din nou mai târziu.',
