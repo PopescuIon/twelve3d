@@ -12,7 +12,7 @@ const translations = {
   ro: {
     // Navigation
     home: 'Acasă',
-    models: 'Modele',
+    models: 'Modele Ceasuri',
     about: 'Despre noi',
     companies: 'Companii',
     contact: 'Contact',
@@ -127,7 +127,7 @@ const translations = {
   ru: {
     // Navigation
     home: 'Главная',
-    models: 'Модели',
+    models: 'Модели Часы',
     about: 'О нас',
     companies: 'Компании',
     contact: 'Контакты',
