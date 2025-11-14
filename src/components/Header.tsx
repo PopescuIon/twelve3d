@@ -48,6 +48,14 @@ const Header = () => {
               {t('models')}
             </Link>
             <Link
+              to="/corporate"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                isActive('/corporate') ? 'text-primary' : 'text-foreground'
+              }`}
+            >
+              {t('corporateClocks')}
+            </Link>
+            <Link
               to="/about"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/about') ? 'text-primary' : 'text-foreground'

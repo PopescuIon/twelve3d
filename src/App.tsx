@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import Home from "./pages/Home";
 import Models from "./pages/Models";
+import Corporate from "./pages/Corporate";
 import About from "./pages/About";
 import Companies from "./pages/Companies";
 import Privacy from "./pages/Privacy";
@@ -27,6 +28,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/models" element={<Models />} />
+            <Route path="/corporate" element={<Corporate />} />
           <Route path="/about" element={<About />} />
           <Route path="/companies" element={<Companies />} />
           <Route path="/privacy" element={<Privacy />} />
