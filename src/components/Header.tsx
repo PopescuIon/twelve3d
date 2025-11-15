@@ -73,14 +73,14 @@ const Header = () => {
               onClick={(e) => handleSectionClick(e, 'twelve-set')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
-              {t('twelveSetTitle')}
+              Setul Twelve
             </a>
             <a
               href="#testimonials"
               onClick={(e) => handleSectionClick(e, 'testimonials')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
-              {t('testimonialsTitle')}
+              Recenzii
             </a>
             <a
               href="#contact"
@@ -170,7 +170,7 @@ const Header = () => {
                   }}
                   className="text-lg font-medium transition-colors hover:text-primary text-foreground"
                 >
-                  {t('twelveSetTitle')}
+                  Setul Twelve
                 </a>
                 <a
                   href="#testimonials"
@@ -180,7 +180,7 @@ const Header = () => {
                   }}
                   className="text-lg font-medium transition-colors hover:text-primary text-foreground"
                 >
-                  {t('testimonialsTitle')}
+                  Recenzii
                 </a>
                 <a
                   href="#contact"
