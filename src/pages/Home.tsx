@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import TwelveSetCarousel from '@/components/TwelveSetCarousel';
 import ImageModal from '@/components/ImageModal';
 import { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -201,12 +202,8 @@ const Home = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto fade-in">
-            <div className="relative rounded-2xl overflow-hidden fade-in order-2 md:order-1">
-              <img
-                src={twelveSetImage}
-                alt="Twelve Set"
-                className="w-full h-auto"
-              />
+            <div className="order-2 md:order-1">
+              <TwelveSetCarousel onImageClick={openModal} />
             </div>
             <div className="space-y-6 order-1 md:order-2">
               <h2 className="text-4xl md:text-5xl font-bold">{t('twelveSetTitle')}</h2>
