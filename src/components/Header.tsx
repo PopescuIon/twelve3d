@@ -14,15 +14,15 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     } else {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -69,8 +69,22 @@ const Header = () => {
               {t('about')}
             </Link>
             <a
+              href="#twelve-set"
+              onClick={(e) => handleSectionClick(e, 'twelve-set')}
+              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
+            >
+              {t('twelveSetTitle')}
+            </a>
+            <a
+              href="#testimonials"
+              onClick={(e) => handleSectionClick(e, 'testimonials')}
+              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
+            >
+              {t('testimonialsTitle')}
+            </a>
+            <a
               href="#contact"
-              onClick={handleContactClick}
+              onClick={(e) => handleSectionClick(e, 'contact')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
               {t('contact')}
@@ -149,9 +163,29 @@ const Header = () => {
                   {t('about')}
                 </Link>
                 <a
+                  href="#twelve-set"
+                  onClick={(e) => {
+                    handleSectionClick(e, 'twelve-set');
+                    setIsOpen(false);
+                  }}
+                  className="text-lg font-medium transition-colors hover:text-primary text-foreground"
+                >
+                  {t('twelveSetTitle')}
+                </a>
+                <a
+                  href="#testimonials"
+                  onClick={(e) => {
+                    handleSectionClick(e, 'testimonials');
+                    setIsOpen(false);
+                  }}
+                  className="text-lg font-medium transition-colors hover:text-primary text-foreground"
+                >
+                  {t('testimonialsTitle')}
+                </a>
+                <a
                   href="#contact"
                   onClick={(e) => {
-                    handleContactClick(e);
+                    handleSectionClick(e, 'contact');
                     setIsOpen(false);
                   }}
                   className="text-lg font-medium transition-colors hover:text-primary text-foreground"
