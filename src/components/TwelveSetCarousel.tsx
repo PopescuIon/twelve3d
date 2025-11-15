@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import twelveInstructions1 from '@/assets/twelve-instructions-1.jpg';
+import twelveInstructions2 from '@/assets/twelve-instructions-2.jpg';
 import twelveAssembly from '@/assets/twelve-assembly.jpg';
 import twelveInstalled from '@/assets/twelve-installed.jpg';
 import twelvePackage from '@/assets/twelve-package.jpg';
@@ -12,6 +14,8 @@ const TwelveSetCarousel = ({ onImageClick }: TwelveSetCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
+    { src: twelveInstructions1, alt: 'Twelve Instructions Page 1' },
+    { src: twelveInstructions2, alt: 'Twelve Instructions Page 2' },
     { src: twelveAssembly, alt: 'Twelve Set Assembly' },
     { src: twelveInstalled, alt: 'Twelve Set Installed' },
     { src: twelvePackage, alt: 'Twelve Set Package' }
