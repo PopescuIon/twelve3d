@@ -52,6 +52,20 @@ const Header = () => {
             >
               {t('models')}
             </Link>
+            <a
+              href="#twelve-set"
+              onClick={(e) => handleSectionClick(e, 'twelve-set')}
+              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
+            >
+              Setul Twelve
+            </a>
+            <a
+              href="#testimonials"
+              onClick={(e) => handleSectionClick(e, 'testimonials')}
+              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
+            >
+              Recenzii
+            </a>
             <Link
               to="/corporate"
               className={`text-sm font-medium transition-colors hover:text-primary ${
@@ -68,20 +82,6 @@ const Header = () => {
             >
               {t('about')}
             </Link>
-            <a
-              href="#twelve-set"
-              onClick={(e) => handleSectionClick(e, 'twelve-set')}
-              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
-            >
-              Setul Twelve
-            </a>
-            <a
-              href="#testimonials"
-              onClick={(e) => handleSectionClick(e, 'testimonials')}
-              className="text-sm font-medium transition-colors hover:text-primary text-foreground"
-            >
-              Recenzii
-            </a>
             <a
               href="#contact"
               onClick={(e) => handleSectionClick(e, 'contact')}
@@ -144,24 +144,6 @@ const Header = () => {
                 >
                   {t('models')}
                 </Link>
-                <Link
-                  to="/corporate"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary ${
-                    isActive('/corporate') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('corporateClocks')}
-                </Link>
-                <Link
-                  to="/about"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary ${
-                    isActive('/about') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('about')}
-                </Link>
                 <a
                   href="#twelve-set"
                   onClick={(e) => {
@@ -182,6 +164,24 @@ const Header = () => {
                 >
                   Recenzii
                 </a>
+                <Link
+                  to="/corporate"
+                  onClick={() => setIsOpen(false)}
+                  className={`text-lg font-medium transition-colors hover:text-primary ${
+                    isActive('/corporate') ? 'text-primary' : 'text-foreground'
+                  }`}
+                >
+                  {t('corporateClocks')}
+                </Link>
+                <Link
+                  to="/about"
+                  onClick={() => setIsOpen(false)}
+                  className={`text-lg font-medium transition-colors hover:text-primary ${
+                    isActive('/about') ? 'text-primary' : 'text-foreground'
+                  }`}
+                >
+                  {t('about')}
+                </Link>
                 <a
                   href="#contact"
                   onClick={(e) => {
