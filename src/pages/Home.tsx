@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import ImageModal from '@/components/ImageModal';
 import { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
@@ -21,6 +22,19 @@ const Home = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [modalImage, setModalImage] = useState('');
+  const [modalImageAlt, setModalImageAlt] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (imageSrc: string, imageAlt: string) => {
+    setModalImage(imageSrc);
+    setModalImageAlt(imageAlt);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const contactSchema = z.object({
     from_name: z.string().trim().min(1, 'Numele este obligatoriu').max(100, 'Numele trebuie să aibă maxim 100 caractere'),
@@ -148,7 +162,10 @@ const Home = () => {
                 className="group relative rounded-2xl overflow-hidden fade-in cursor-pointer bg-background shadow-lg"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <div className="aspect-square overflow-hidden">
+                <div 
+                  className="aspect-square overflow-hidden cursor-pointer"
+                  onClick={() => openModal(model.img, model.name)}
+                >
                   <img
                     src={model.img}
                     alt={model.name}
@@ -289,6 +306,13 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <ImageModal 
+        isOpen={isModalOpen}
+        imageSrc={modalImage}
+        imageAlt={modalImageAlt}
+        onClose={closeModal}
+      />
     </div>
   );
 };
