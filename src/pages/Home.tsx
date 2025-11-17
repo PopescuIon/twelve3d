@@ -38,9 +38,9 @@ const Home = () => {
   };
 
   const contactSchema = z.object({
-    from_name: z.string().trim().min(1, 'Numele este obligatoriu').max(100, 'Numele trebuie să aibă maxim 100 caractere'),
-    from_email: z.string().trim().email('Email invalid').max(255, 'Email-ul trebuie să aibă maxim 255 caractere'),
-    from_phone: z.string().trim().min(1, 'Telefonul este obligatoriu').max(20, 'Telefonul trebuie să aibă maxim 20 caractere'),
+    user_name: z.string().trim().min(1, 'Numele este obligatoriu').max(100, 'Numele trebuie să aibă maxim 100 caractere'),
+    user_email: z.string().trim().email('Email invalid').max(255, 'Email-ul trebuie să aibă maxim 255 caractere'),
+    user_phone: z.string().trim().min(1, 'Telefonul este obligatoriu').max(20, 'Telefonul trebuie să aibă maxim 20 caractere'),
     message: z.string().trim().min(1, 'Mesajul este obligatoriu').max(1000, 'Mesajul trebuie să aibă maxim 1000 caractere'),
   });
 
@@ -53,10 +53,10 @@ const Home = () => {
       
       const formData = new FormData(formRef.current);
       const data = {
-        from_name: formData.get('from_name') as string,
-        from_email: formData.get('from_email') as string,
-        from_phone: formData.get('from_phone') as string,
-        message: formData.get('message') as string,
+        user_name: (formData.get('user_name') as string) || '',
+        user_email: (formData.get('user_email') as string) || '',
+        user_phone: (formData.get('user_phone') as string) || '',
+        message: (formData.get('message') as string) || '',
       };
 
       const result = contactSchema.safeParse(data);
