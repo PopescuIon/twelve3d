@@ -95,7 +95,7 @@ const Corporate = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 md:pt-24 pb-12">
+    <div id="corporate-clocks" className="min-h-screen pt-20 md:pt-24 pb-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12 fade-in max-w-3xl mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4">Ceasuri personalizate pentru companii</h1>

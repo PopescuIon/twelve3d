@@ -108,14 +108,14 @@ const Home = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center fade-in">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-white drop-shadow-lg">
-            {t('heroTitle')}
+            Fiecare clipă acasă devine mai frumoasă cu Twelve.
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-4xl mb-6 md:mb-8 text-white drop-shadow-lg px-4">
             {t('heroSubtitle')}
           </p>
           <Button asChild size="lg" className="rounded-full text-base md:text-lg px-6 md:px-8 shadow-xl hover:shadow-2xl">
             <Link to="/models">
-              {t('viewModels')}
+              Alege-ți ceasul preferat
               <ArrowRight className="ml-2" />
             </Link>
           </Button>

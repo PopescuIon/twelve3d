@@ -26,6 +26,22 @@ const Header = () => {
     }
   };
 
+  const handlePageNavigationClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, sectionId: string) => {
+    e.preventDefault();
+    navigate(path);
+    setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    navigate('/');
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-3 md:py-4">
@@ -36,22 +52,24 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <Link
-              to="/"
+            <a
+              href="/"
+              onClick={handleHomeClick}
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/') ? 'text-primary' : 'text-foreground'
               }`}
             >
               {t('home')}
-            </Link>
-            <Link
-              to="/models"
+            </a>
+            <a
+              href="/models"
+              onClick={(e) => handlePageNavigationClick(e, '/models', 'models-collection')}
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/models') ? 'text-primary' : 'text-foreground'
               }`}
             >
               {t('models')}
-            </Link>
+            </a>
             <a
               href="#twelve-set"
               onClick={(e) => handleSectionClick(e, 'twelve-set')}
@@ -66,14 +84,15 @@ const Header = () => {
             >
               Recenzii
             </a>
-            <Link
-              to="/corporate"
+            <a
+              href="/corporate"
+              onClick={(e) => handlePageNavigationClick(e, '/corporate', 'corporate-clocks')}
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/corporate') ? 'text-primary' : 'text-foreground'
               }`}
             >
               {t('corporateClocks')}
-            </Link>
+            </a>
             <Link
               to="/about"
               className={`text-sm font-medium transition-colors hover:text-primary ${
@@ -126,24 +145,30 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <nav className="flex flex-col gap-6 mt-8">
-                <Link
-                  to="/"
-                  onClick={() => setIsOpen(false)}
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    handleHomeClick(e);
+                    setIsOpen(false);
+                  }}
                   className={`text-lg font-medium transition-colors hover:text-primary ${
                     isActive('/') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {t('home')}
-                </Link>
-                <Link
-                  to="/models"
-                  onClick={() => setIsOpen(false)}
+                </a>
+                <a
+                  href="/models"
+                  onClick={(e) => {
+                    handlePageNavigationClick(e, '/models', 'models-collection');
+                    setIsOpen(false);
+                  }}
                   className={`text-lg font-medium transition-colors hover:text-primary ${
                     isActive('/models') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {t('models')}
-                </Link>
+                </a>
                 <a
                   href="#twelve-set"
                   onClick={(e) => {
@@ -164,15 +189,18 @@ const Header = () => {
                 >
                   Recenzii
                 </a>
-                <Link
-                  to="/corporate"
-                  onClick={() => setIsOpen(false)}
+                <a
+                  href="/corporate"
+                  onClick={(e) => {
+                    handlePageNavigationClick(e, '/corporate', 'corporate-clocks');
+                    setIsOpen(false);
+                  }}
                   className={`text-lg font-medium transition-colors hover:text-primary ${
                     isActive('/corporate') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {t('corporateClocks')}
-                </Link>
+                </a>
                 <Link
                   to="/about"
                   onClick={() => setIsOpen(false)}
