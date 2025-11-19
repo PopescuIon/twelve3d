@@ -14,8 +14,7 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
+  const handleSectionClick = (sectionId: string) => {
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -24,75 +23,55 @@ const Header = () => {
     } else {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handlePageNavigationClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, sectionId: string) => {
-    e.preventDefault();
-    navigate(path);
-    setTimeout(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  };
-
-  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    navigate('/');
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
+    setIsOpen(false);
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="flex items-center justify-between">
-          <a href="/" onClick={handleHomeClick} className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="Twelve" className="h-10 md:h-12 w-auto" />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            <a
-              href="/"
-              onClick={handleHomeClick}
+            <Link
+              to="/"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/') ? 'text-primary' : 'text-foreground'
               }`}
             >
               {t('home')}
-            </a>
-            <a
-              href="/models"
-              onClick={(e) => handlePageNavigationClick(e, '/models', 'models-collection')}
+            </Link>
+            <Link
+              to="/models"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/models') ? 'text-primary' : 'text-foreground'
               }`}
             >
               {t('models')}
-            </a>
-            <a
-              href="#twelve-set"
-              onClick={(e) => handleSectionClick(e, 'twelve-set')}
+            </Link>
+            <button
+              onClick={() => handleSectionClick('twelve-set')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
               {t('twelveSet')}
-            </a>
-            <a
-              href="#testimonials"
-              onClick={(e) => handleSectionClick(e, 'testimonials')}
+            </button>
+            <button
+              onClick={() => handleSectionClick('testimonials')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
               {t('testimonials')}
-            </a>
-            <a
-              href="/corporate"
-              onClick={(e) => handlePageNavigationClick(e, '/corporate', 'corporate-clocks')}
+            </button>
+            <Link
+              to="/corporate"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 isActive('/corporate') ? 'text-primary' : 'text-foreground'
               }`}
             >
               {t('corporateClocks')}
-            </a>
+            </Link>
             <Link
               to="/about"
               className={`text-sm font-medium transition-colors hover:text-primary ${
@@ -101,13 +80,12 @@ const Header = () => {
             >
               {t('about')}
             </Link>
-            <a
-              href="#contact"
-              onClick={(e) => handleSectionClick(e, 'contact')}
+            <button
+              onClick={() => handleSectionClick('contact')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
               {t('contact')}
-            </a>
+            </button>
           </nav>
 
           {/* Desktop Language & Phone */}
@@ -145,62 +123,45 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <nav className="flex flex-col gap-6 mt-8">
-                <a
-                  href="/"
-                  onClick={(e) => {
-                    handleHomeClick(e);
-                    setIsOpen(false);
-                  }}
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
                   className={`text-lg font-medium transition-colors hover:text-primary ${
                     isActive('/') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {t('home')}
-                </a>
-                <a
-                  href="/models"
-                  onClick={(e) => {
-                    handlePageNavigationClick(e, '/models', 'models-collection');
-                    setIsOpen(false);
-                  }}
+                </Link>
+                <Link
+                  to="/models"
+                  onClick={() => setIsOpen(false)}
                   className={`text-lg font-medium transition-colors hover:text-primary ${
                     isActive('/models') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {t('models')}
-                </a>
-                <a
-                  href="#twelve-set"
-                  onClick={(e) => {
-                    handleSectionClick(e, 'twelve-set');
-                    setIsOpen(false);
-                  }}
-                  className="text-lg font-medium transition-colors hover:text-primary text-foreground"
+                </Link>
+                <button
+                  onClick={() => handleSectionClick('twelve-set')}
+                  className="text-lg font-medium transition-colors hover:text-primary text-foreground text-left"
                 >
-                  Setul Twelve
-                </a>
-                <a
-                  href="#testimonials"
-                  onClick={(e) => {
-                    handleSectionClick(e, 'testimonials');
-                    setIsOpen(false);
-                  }}
-                  className="text-lg font-medium transition-colors hover:text-primary text-foreground"
+                  {t('twelveSet')}
+                </button>
+                <button
+                  onClick={() => handleSectionClick('testimonials')}
+                  className="text-lg font-medium transition-colors hover:text-primary text-foreground text-left"
                 >
-                  Recenzii
-                </a>
-                <a
-                  href="/corporate"
-                  onClick={(e) => {
-                    handlePageNavigationClick(e, '/corporate', 'corporate-clocks');
-                    setIsOpen(false);
-                  }}
+                  {t('testimonials')}
+                </button>
+                <Link
+                  to="/corporate"
+                  onClick={() => setIsOpen(false)}
                   className={`text-lg font-medium transition-colors hover:text-primary ${
                     isActive('/corporate') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
                   {t('corporateClocks')}
-                </a>
+                </Link>
                 <Link
                   to="/about"
                   onClick={() => setIsOpen(false)}
@@ -210,16 +171,12 @@ const Header = () => {
                 >
                   {t('about')}
                 </Link>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    handleSectionClick(e, 'contact');
-                    setIsOpen(false);
-                  }}
-                  className="text-lg font-medium transition-colors hover:text-primary text-foreground"
+                <button
+                  onClick={() => handleSectionClick('contact')}
+                  className="text-lg font-medium transition-colors hover:text-primary text-foreground text-left"
                 >
                   {t('contact')}
-                </a>
+                </button>
 
                 <div className="flex gap-3 mt-4 pt-6 border-t border-border">
                   <Button

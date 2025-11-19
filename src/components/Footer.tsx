@@ -30,8 +30,8 @@ const Footer = () => {
             <Link to="/corporate" className="text-sm hover:text-primary transition-colors">
               {t('corporateClocks')}
             </Link>
-            <Link to="/#contact" className="text-sm hover:text-primary transition-colors">
-              {t('contact')}
+            <Link to="/about" className="text-sm hover:text-primary transition-colors">
+              {t('about')}
             </Link>
             <Link to="/privacy" className="text-sm hover:text-primary transition-colors">
               {t('privacy')}
