@@ -75,14 +75,14 @@ const Header = () => {
               onClick={(e) => handleSectionClick(e, 'twelve-set')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
-              Setul Twelve
+              {t('twelveSet')}
             </a>
             <a
               href="#testimonials"
               onClick={(e) => handleSectionClick(e, 'testimonials')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
             >
-              Recenzii
+              {t('testimonials')}
             </a>
             <a
               href="/corporate"

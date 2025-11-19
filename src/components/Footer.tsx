@@ -28,7 +28,7 @@ const Footer = () => {
               {t('models')}
             </Link>
             <Link to="/corporate" className="text-sm hover:text-primary transition-colors">
-              Ceasuri Corporate
+              {t('corporateClocks')}
             </Link>
             <Link to="/#contact" className="text-sm hover:text-primary transition-colors">
               {t('contact')}

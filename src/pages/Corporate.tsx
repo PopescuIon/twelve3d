@@ -34,8 +34,8 @@ const Corporate = () => {
     <div id="corporate-clocks" className="min-h-screen pt-20 md:pt-24 pb-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12 fade-in max-w-3xl mx-auto px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4">Ceasuri personalizate pentru companii</h1>
-          <p className="text-base md:text-xl text-muted-foreground">Logo-ul companiei tale, integrat într-un ceas unic, premium și realizat manual.</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4">{t('corporateTitle')}</h1>
+          <p className="text-base md:text-xl text-muted-foreground">{t('corporateSubtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto mb-8 md:mb-12">
