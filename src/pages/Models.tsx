@@ -1,12 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
 import ImageModal from '@/components/ImageModal';
+import { ContactForm } from '@/components/ContactForm';
 import contactBg from '@/assets/contact-bg.jpg';
-import { z } from 'zod';
 
 // Import all model images
 import modelRetroCustom from '@/assets/model-retro-custom.jpg';
@@ -31,9 +29,6 @@ import corporate4 from '@/assets/corporate-4.jpg';
 
 const Models = () => {
   const { t } = useLanguage();
-  const { toast } = useToast();
-  const formRef = useRef<HTMLFormElement>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
   const [activeTab, setActiveTab] = useState<'models' | 'corporate'>('models');
 
@@ -59,76 +54,6 @@ const Models = () => {
     { id: 3, name: 'Instituție Privată', image: corporate3 },
     { id: 4, name: 'Stomatology', image: corporate4 },
   ];
-
-  const contactSchema = z.object({
-    user_name: z.string().trim().min(1, 'Numele este obligatoriu').max(100, 'Numele trebuie să aibă maxim 100 caractere'),
-    user_email: z.string().trim().email('Email invalid').max(255, 'Email-ul trebuie să aibă maxim 255 caractere'),
-    user_phone: z.string().trim().min(1, 'Telefonul este obligatoriu').max(20, 'Telefonul trebuie să aibă maxim 20 caractere'),
-    message: z.string().trim().min(1, 'Mesajul este obligatoriu').max(1000, 'Mesajul trebuie să aibă maxim 1000 caractere'),
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      if (!formRef.current) return;
-      
-      const formData = new FormData(formRef.current);
-      const data = {
-        user_name: String(formData.get('user_name') || '').trim(),
-        user_email: String(formData.get('user_email') || '').trim(),
-        user_phone: String(formData.get('user_phone') || '').trim(),
-        message: String(formData.get('message') || '').trim(),
-      };
-
-      const result = contactSchema.safeParse(data);
-      if (!result.success) {
-        const firstError = result.error.errors[0];
-        toast({
-          title: 'Eroare validare',
-          description: firstError.message,
-          variant: 'destructive',
-        });
-        setIsSubmitting(false);
-        return;
-      }
-      
-      // Send email using explicit template parameters
-      await emailjs.send(
-        'service_twelve',
-        'template_ilqjnou',
-        {
-          from_name: data.user_name,
-          user_name: data.user_name,
-          user_email: data.user_email,
-          from_email: data.user_email,
-          user_phone: data.user_phone,
-          phone: data.user_phone,
-          message: data.message,
-          to_email: 'twelve.ceasuri.perete@gmail.com',
-        },
-        'qnNq8OVcXOQrbk9AO'
-      );
-
-      toast({
-        title: t('messageSent'),
-        description: t('messageDescription'),
-        duration: 4000,
-      });
-
-      formRef.current.reset();
-    } catch (error) {
-      console.error('Contact form error:', error);
-      toast({
-        title: t('error'),
-        description: t('errorDescription') || 'A apărut o eroare. Încearcă din nou mai târziu.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const openModal = (image: string, name: string) => {
     setModalImage({ src: image, alt: name });
@@ -181,43 +106,7 @@ const Models = () => {
               </div>
 
               {/* Contact Form */}
-              <form ref={formRef} id="contact-form" onSubmit={handleSubmit} className="space-y-4 fade-in">
-                <input 
-                  type="text" 
-                  name="user_name" 
-                  placeholder={t('name')}
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                />
-                <input 
-                  type="email" 
-                  name="user_email" 
-                  placeholder={t('email')}
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                />
-                <input 
-                  type="tel" 
-                  name="user_phone" 
-                  placeholder={t('phone')}
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                />
-                <textarea 
-                  name="message" 
-                  placeholder={t('message')}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none min-h-[120px]"
-                />
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-6 py-3 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? t('sending') : t('send')}
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>
