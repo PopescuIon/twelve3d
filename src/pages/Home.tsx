@@ -53,10 +53,10 @@ const Home = () => {
       
       const formData = new FormData(formRef.current);
       const data = {
-        user_name: (formData.get('user_name') as string) || '',
-        user_email: (formData.get('user_email') as string) || '',
-        user_phone: (formData.get('user_phone') as string) || '',
-        message: (formData.get('message') as string) || '',
+        user_name: String(formData.get('user_name') || '').trim(),
+        user_email: String(formData.get('user_email') || '').trim(),
+        user_phone: String(formData.get('user_phone') || '').trim(),
+        message: String(formData.get('message') || '').trim(),
       };
 
       const result = contactSchema.safeParse(data);
@@ -71,10 +71,20 @@ const Home = () => {
         return;
       }
       
-      await emailjs.sendForm(
+      // Send email using explicit template parameters
+      await emailjs.send(
         'service_twelve',
         'template_ilqjnou',
-        formRef.current,
+        {
+          from_name: data.user_name,
+          user_name: data.user_name,
+          user_email: data.user_email,
+          from_email: data.user_email,
+          user_phone: data.user_phone,
+          phone: data.user_phone,
+          message: data.message,
+          to_email: 'twelve.ceasuri.perete@gmail.com',
+        },
         'qnNq8OVcXOQrbk9AO'
       );
 
@@ -86,6 +96,7 @@ const Home = () => {
 
       formRef.current.reset();
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({
         title: t('error'),
         description: t('errorDescription') || 'A apărut o eroare. Încearcă din nou mai târziu.',
