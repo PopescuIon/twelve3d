@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Instagram, Facebook } from 'lucide-react';
-import { FaTiktok } from 'react-icons/fa';
+import { FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import logo from '@/assets/logo.png';
 
 const Footer = () => {
@@ -27,10 +27,10 @@ const Footer = () => {
             <Link to="/models" className="text-sm hover:text-primary transition-colors">
               {t('models')}
             </Link>
-            <Link to="/about" className="text-sm hover:text-primary transition-colors">
-              {t('about')}
+            <Link to="/corporate" className="text-sm hover:text-primary transition-colors">
+              Ceasuri Corporate
             </Link>
-            <Link to="/contact" className="text-sm hover:text-primary transition-colors">
+            <Link to="/#contact" className="text-sm hover:text-primary transition-colors">
               {t('contact')}
             </Link>
             <Link to="/privacy" className="text-sm hover:text-primary transition-colors">
@@ -64,6 +64,14 @@ const Footer = () => {
                 className="text-primary hover:scale-110 hover:brightness-110 transition-all duration-300"
               >
                 <FaTiktok className="w-5 h-5" />
+              </a>
+              <a
+                href="https://wa.me/37360592006"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:scale-110 hover:brightness-110 transition-all duration-300"
+              >
+                <FaWhatsapp className="w-5 h-5" />
               </a>
             </div>
           </div>
