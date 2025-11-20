@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import React from 'react';
 import { Mail, Phone } from 'lucide-react';
 import ImageModal from '@/components/ImageModal';
 import { ContactForm } from '@/components/ContactForm';
@@ -31,6 +32,11 @@ const Models = () => {
   const { t } = useLanguage();
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
   const [activeTab, setActiveTab] = useState<'models' | 'corporate'>('models');
+
+  // Scroll to top when page loads
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const models = [
     { id: 1, name: 'Model Retro', image: modelRetroCustom, price80: 799, price100: 899 },

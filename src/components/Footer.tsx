@@ -54,10 +54,10 @@ const Footer = () => {
             >
               {t('home')}
             </button>
-            <Link to="/models" className="text-sm hover:text-primary transition-colors">
+            <Link to="/models" className="text-sm hover:text-primary transition-colors cursor-pointer">
               {t('models')}
             </Link>
-            <Link to="/corporate" className="text-sm hover:text-primary transition-colors">
+            <Link to="/corporate" className="text-sm hover:text-primary transition-colors cursor-pointer">
               {t('corporateClocks')}
             </Link>
             <button
@@ -72,7 +72,7 @@ const Footer = () => {
             >
               {t('contact')}
             </button>
-            <Link to="/privacy" className="text-sm hover:text-primary transition-colors">
+            <Link to="/privacy" className="text-sm hover:text-primary transition-colors cursor-pointer">
               {t('privacy')}
             </Link>
           </nav>
