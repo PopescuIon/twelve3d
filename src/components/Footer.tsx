@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Instagram, Facebook } from 'lucide-react';
 import { FaTiktok, FaWhatsapp } from 'react-icons/fa';
@@ -6,33 +6,72 @@ import logo from '@/assets/logo.png';
 
 const Footer = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSectionClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  const handleHomeClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <footer className="bg-secondary py-12 mt-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <Link to="/" className="flex items-center mb-4">
+            <button onClick={handleHomeClick} className="flex items-center mb-4 cursor-pointer">
               <img src={logo} alt="Twelve" className="h-12 w-auto" />
-            </Link>
+            </button>
             <p className="text-sm text-muted-foreground">
               Twelve – {t('footerTagline')}
             </p>
           </div>
 
           <nav className="flex flex-col gap-3">
-            <Link to="/" className="text-sm hover:text-primary transition-colors">
+            <button
+              onClick={handleHomeClick}
+              className="text-sm hover:text-primary transition-colors text-left"
+            >
               {t('home')}
-            </Link>
+            </button>
             <Link to="/models" className="text-sm hover:text-primary transition-colors">
               {t('models')}
             </Link>
             <Link to="/corporate" className="text-sm hover:text-primary transition-colors">
               {t('corporateClocks')}
             </Link>
-            <Link to="/about" className="text-sm hover:text-primary transition-colors">
+            <button
+              onClick={() => handleSectionClick('about')}
+              className="text-sm hover:text-primary transition-colors text-left"
+            >
               {t('about')}
-            </Link>
+            </button>
+            <button
+              onClick={() => handleSectionClick('contact')}
+              className="text-sm hover:text-primary transition-colors text-left"
+            >
+              {t('contact')}
+            </button>
             <Link to="/privacy" className="text-sm hover:text-primary transition-colors">
               {t('privacy')}
             </Link>
