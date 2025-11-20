@@ -41,6 +41,12 @@ const Header = () => {
     }
   };
 
+  const handlePageNavigation = (path: string) => {
+    setIsOpen(false);
+    navigate(path);
+    // Scroll to top will be handled by the page component
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-3 md:py-4">
@@ -61,7 +67,8 @@ const Header = () => {
             </button>
             <Link
               to="/models"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              onClick={() => setIsOpen(false)}
+              className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
                 isActive('/models') ? 'text-primary' : 'text-foreground'
               }`}
             >
@@ -81,7 +88,8 @@ const Header = () => {
             </button>
             <Link
               to="/corporate"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              onClick={() => setIsOpen(false)}
+              className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
                 isActive('/corporate') ? 'text-primary' : 'text-foreground'
               }`}
             >
@@ -147,7 +155,7 @@ const Header = () => {
                 <Link
                   to="/models"
                   onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary ${
+                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
                     isActive('/models') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
@@ -168,7 +176,7 @@ const Header = () => {
                 <Link
                   to="/corporate"
                   onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary ${
+                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
                     isActive('/corporate') ? 'text-primary' : 'text-foreground'
                   }`}
                 >
