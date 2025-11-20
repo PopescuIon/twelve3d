@@ -68,7 +68,7 @@ const Models = () => {
     setModalImage(null);
   };
 
-  const ContactForm = () => (
+  const ContactSection = () => (
     <section id="contact" className="py-20 bg-background mt-12">
       <div className="container mx-auto px-4">
         <div 
@@ -201,7 +201,7 @@ const Models = () => {
                 </div>
               ))}
             </div>
-            <ContactForm />
+            <ContactSection />
           </>
         )}
 
@@ -234,7 +234,7 @@ const Models = () => {
                 </div>
               ))}
             </div>
-            <ContactForm />
+            <ContactSection />
           </>
         )}
       </div>
