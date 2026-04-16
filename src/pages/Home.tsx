@@ -85,9 +85,12 @@ const Home = () => {
       {/* Popular Models Section */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 fade-in">
+          <h2 className="text-4xl font-bold text-center mb-4 fade-in">
             {t('popularModelsTitle')}
           </h2>
+          <p className="text-center text-sm md:text-base text-muted-foreground mb-8 px-4 max-w-3xl mx-auto fade-in">
+            Inscripțiile din imagini sunt cu scop de prezentare. Prețul include doar ceasul standard, fără inscripții. Putem personaliza orice model în funcție de preferințe - contactați-ne în privat.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               { img: modelRetro, name: 'Model Retro', id: 'retro' },
@@ -113,11 +116,11 @@ const Home = () => {
                   <h3 className="text-xl font-bold mb-3">{model.name}</h3>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">80 cm</span>
-                    <span className="text-primary font-bold text-lg">699 lei</span>
+                    <span className="text-primary font-bold text-lg">898 lei</span>
                   </div>
                   <div className="flex items-center justify-between text-sm mt-2">
                     <span className="text-muted-foreground">1 m</span>
-                    <span className="text-primary font-bold text-lg">799 lei</span>
+                    <span className="text-primary font-bold text-lg">998 lei</span>
                   </div>
                 </div>
               </div>
