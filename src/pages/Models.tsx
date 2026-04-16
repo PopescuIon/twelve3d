@@ -125,9 +125,6 @@ const Models = () => {
         <div className="text-center mb-12 fade-in">
           <h1 className="text-5xl font-bold mb-4">{t('modelsPageTitle')}</h1>
           <p className="text-xl text-muted-foreground mb-4">{t('modelsPageSubtitle')}</p>
-          <p className="text-sm md:text-base text-muted-foreground px-4 max-w-3xl mx-auto">
-            Inscripțiile din imagini sunt cu scop de prezentare. Prețul include doar ceasul standard, fără inscripții. Putem personaliza orice model în funcție de preferințe - contactați-ne în privat.
-          </p>
         </div>
 
         {/* Tabs */}
@@ -151,6 +148,11 @@ const Models = () => {
         {/* Models Tab */}
         {activeTab === 'models' && (
           <>
+            <div className="text-center mb-8 fade-in">
+              <p className="text-sm md:text-base text-muted-foreground px-4 max-w-3xl mx-auto">
+                Inscripțiile din imagini sunt cu scop de prezentare. Prețul include doar ceasul standard, fără inscripții. Putem personaliza orice model în funcție de preferințe - contactați-ne în privat.
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {models.map((model, idx) => (
                 <div
