@@ -1,38 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { contactSchema, type ContactFormData } from '@/lib/contact-schema';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const contactSchema = z.object({
-  user_name: z
-    .string()
-    .trim()
-    .min(1, 'Numele este obligatoriu')
-    .max(100, 'Numele trebuie să aibă maxim 100 caractere'),
-  user_email: z
-    .string()
-    .trim()
-    .min(1, 'Email-ul este obligatoriu')
-    .email('Format email invalid (ex: nume@domeniu.ro)')
-    .max(255, 'Email-ul trebuie să aibă maxim 255 caractere'),
-  user_phone: z
-    .string()
-    .trim()
-    .min(1, 'Telefonul este obligatoriu')
-    .regex(/^[0-9]+$/, 'Telefonul trebuie să conțină doar cifre')
-    .min(8, 'Telefonul trebuie să aibă minim 8 cifre')
-    .max(20, 'Telefonul trebuie să aibă maxim 20 caractere'),
-  message: z
-    .string()
-    .trim()
-    .min(5, 'Mesajul trebuie să aibă minim 5 caractere')
-    .max(1000, 'Mesajul trebuie să aibă maxim 1000 caractere'),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { Button } from '@/components/ui/button';
 
 export const ContactForm = () => {
   const { t } = useLanguage();
@@ -47,6 +20,7 @@ export const ContactForm = () => {
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     mode: 'onBlur',
+    defaultValues: { user_name: '', user_email: '', user_phone: '', message: '' },
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -77,8 +51,7 @@ export const ContactForm = () => {
       });
 
       reset();
-    } catch (error) {
-      console.error('Contact form error:', error);
+    } catch {
       toast({
         title: t('error'),
         description: t('errorDescription') || 'A apărut o eroare. Încearcă din nou mai târziu.',
@@ -94,6 +67,9 @@ export const ContactForm = () => {
       <div>
         <input
           type="text"
+          maxLength={100}
+          autoComplete="name"
+          aria-label={t('name')}
           {...register('user_name')}
           placeholder={t('name')}
           className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -106,6 +82,9 @@ export const ContactForm = () => {
       <div>
         <input
           type="email"
+          maxLength={255}
+          autoComplete="email"
+          aria-label={t('email')}
           {...register('user_email')}
           placeholder={t('email')}
           className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -118,6 +97,10 @@ export const ContactForm = () => {
       <div>
         <input
           type="tel"
+          maxLength={20}
+          inputMode="numeric"
+          autoComplete="tel"
+          aria-label={t('phone')}
           {...register('user_phone')}
           placeholder={t('phone')}
           className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -129,6 +112,8 @@ export const ContactForm = () => {
 
       <div>
         <textarea
+          maxLength={1000}
+          aria-label={t('message')}
           {...register('message')}
           placeholder={t('message')}
           rows={5}
@@ -139,13 +124,13 @@ export const ContactForm = () => {
         )}
       </div>
 
-      <button
+      <Button
         type="submit"
         disabled={isSubmitting}
         className="w-full px-6 py-3 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isSubmitting ? t('sending') : t('send')}
-      </button>
+      </Button>
     </form>
   );
 };
