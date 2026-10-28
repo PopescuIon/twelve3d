@@ -39,7 +39,11 @@ import kidsSweet from '@/assets/kids-sweet.jpg';
 const Models = () => {
   const { t } = useLanguage();
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
-  const [activeTab, setActiveTab] = useState<'models' | 'corporate' | 'kids'>('models');
+  const [activeTab, setActiveTab] = useState<'models' | 'corporate' | 'kids'>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get('tab');
+    return tab === 'kids' || tab === 'corporate' || tab === 'models' ? tab : 'models';
+  });
 
   // Scroll to top when page loads
   useEffect(() => {
