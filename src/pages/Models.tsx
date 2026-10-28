@@ -73,7 +73,7 @@ const Models = () => {
   ];
 
   const corporateModels = [
-    { id: 1, name: 'Alto Garage', image: corporate1 },
+    { id: 1, name: 'Auto Garage', image: corporate1 },
     { id: 2, name: 'Dental Centre', image: corporate2 },
     { id: 3, name: 'Instituție Privată', image: corporate3 },
     { id: 4, name: 'Stomatology', image: corporate4 },
