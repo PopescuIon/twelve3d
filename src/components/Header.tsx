@@ -79,6 +79,15 @@ const Header = () => {
               <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="bg-background border border-border rounded-xl shadow-lg py-2 min-w-[220px]">
                   <Link
+                    to="/models"
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-primary hover:bg-secondary ${
+                      isActive('/models') && !location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {t('decorativeClocks') || 'Ceasuri Decorative'}
+                  </Link>
+                  <Link
                     to="/corporate"
                     onClick={() => setIsOpen(false)}
                     className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-primary hover:bg-secondary ${
@@ -179,6 +188,15 @@ const Header = () => {
                     {t('models')}
                   </Link>
                   <div className="flex flex-col gap-3 mt-3 pl-5 border-l border-border ml-1">
+                    <Link
+                      to="/models"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-base transition-colors hover:text-primary cursor-pointer ${
+                        isActive('/models') && !location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                      }`}
+                    >
+                      {t('decorativeClocks') || 'Ceasuri Decorative'}
+                    </Link>
                     <Link
                       to="/corporate"
                       onClick={() => setIsOpen(false)}
