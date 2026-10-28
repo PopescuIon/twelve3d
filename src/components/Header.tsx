@@ -211,24 +211,6 @@ const Header = () => {
                 >
                   {t('testimonials')}
                 </button>
-                <Link
-                  to="/corporate"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
-                    isActive('/corporate') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('corporateClocks')}
-                </Link>
-                <Link
-                  to="/models?tab=kids"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
-                    location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('kidsClocks') || 'Ceasuri pentru copii'}
-                </Link>
                 <button
                   onClick={() => handleSectionClick('about')}
                   className="text-lg font-medium transition-colors hover:text-primary text-foreground text-left"
