@@ -27,10 +27,19 @@ import corporate2 from '@/assets/corporate-6.jpg';
 import corporate3 from '@/assets/corporate-7.jpg';
 import corporate4 from '@/assets/corporate-4.jpg';
 
+// Import kids clock images
+import kidsChampion from '@/assets/kids-champion.jpg';
+import kidsHero from '@/assets/kids-hero.jpg';
+import kidsCosmos from '@/assets/kids-cosmos.jpg';
+import kidsForest from '@/assets/kids-forest.jpg';
+import kidsDream from '@/assets/kids-dream.jpg';
+import kidsUnicorn from '@/assets/kids-unicorn.jpg';
+import kidsSweet from '@/assets/kids-sweet.jpg';
+
 const Models = () => {
   const { t } = useLanguage();
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
-  const [activeTab, setActiveTab] = useState<'models' | 'corporate'>('models');
+  const [activeTab, setActiveTab] = useState<'models' | 'corporate' | 'kids'>('models');
 
   // Scroll to top when page loads
   useEffect(() => {
@@ -51,6 +60,16 @@ const Models = () => {
     { id: 11, name: 'Ceas pe Oglindă', image: modelOglinda, price60: 1949 },
     { id: 12, name: 'Home + Ceas', image: modelHomeclock, width150: 1850 },
     { id: 13, name: 'Home Sweet Home', image: modelHomesweet, length200: 2500 },
+  ];
+
+  const kidsModels = [
+    { id: 1, name: 'Model Champion', image: kidsChampion, price40: 899 },
+    { id: 2, name: 'Model Hero', image: kidsHero, price40: 899 },
+    { id: 3, name: 'Model Cosmos', image: kidsCosmos, price40: 899 },
+    { id: 4, name: 'Model Forest', image: kidsForest, price40: 899 },
+    { id: 5, name: 'Model Dream', image: kidsDream, price40: 899 },
+    { id: 6, name: 'Model Unicorn', image: kidsUnicorn, price40: 899 },
+    { id: 7, name: 'Model Sweet', image: kidsSweet, price40: 899 },
   ];
 
   const corporateModels = [
@@ -142,6 +161,13 @@ const Models = () => {
             className="rounded-full px-8"
           >
             {t('corporateClocks') || 'Ceasuri Corporate'}
+          </Button>
+          <Button
+            variant={activeTab === 'kids' ? 'default' : 'outline'}
+            onClick={() => setActiveTab('kids')}
+            className="rounded-full px-8"
+          >
+            {t('kidsClocks') || 'Ceasuri pentru copii'}
           </Button>
         </div>
 
@@ -235,6 +261,47 @@ const Models = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-center">{model.name}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <ContactSection />
+          </>
+        )}
+
+        {/* Kids Tab */}
+        {activeTab === 'kids' && (
+          <>
+            <div className="text-center mb-12 fade-in max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold mb-4">Ceasuri pentru copii</h2>
+              <p className="text-xl text-muted-foreground">Ceasuri vesele și colorate, realizate manual, perfecte pentru camera celor mici.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {kidsModels.map((model, idx) => (
+                <div
+                  key={model.id}
+                  className="group rounded-2xl overflow-hidden fade-in cursor-pointer bg-background shadow-lg hover:shadow-xl transition-shadow"
+                  style={{ animationDelay: `${idx * 0.1}s` }}
+                  onClick={() => openModal(model.image, model.name)}
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={model.image}
+                      alt={model.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-3">{model.name}</h3>
+                    <div className="space-y-2">
+                      {model.price40 && (
+                        <div className="flex justify-between items-center text-muted-foreground">
+                          <span>Ø 40 cm</span>
+                          <span className="text-primary font-semibold">{model.price40} lei</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
