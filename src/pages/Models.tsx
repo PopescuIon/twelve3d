@@ -73,7 +73,7 @@ const Models = () => {
   ];
 
   const corporateModels = [
-    { id: 1, name: 'Alto Garage', image: corporate1 },
+    { id: 1, name: 'Auto Garage', image: corporate1 },
     { id: 2, name: 'Dental Centre', image: corporate2 },
     { id: 3, name: 'Instituție Privată', image: corporate3 },
     { id: 4, name: 'Stomatology', image: corporate4 },
@@ -176,7 +176,7 @@ const Models = () => {
           <>
             <div className="text-center mb-8 fade-in">
               <p className="text-sm md:text-base text-muted-foreground px-4 max-w-3xl mx-auto">
-                Inscripțiile din imagini sunt cu scop de prezentare. Prețul include doar ceasul standard, fără inscripții. Putem personaliza orice model în funcție de preferințe - contactați-ne în privat.
+                {t('modelsDisclaimer') || 'Inscripțiile din imagini sunt cu scop de prezentare. Prețul include doar ceasul standard, fără inscripții. Putem personaliza orice model în funcție de preferințe - contactați-ne în privat.'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -217,13 +217,13 @@ const Models = () => {
                       )}
                       {model.width150 && (
                         <div className="flex justify-between items-center text-muted-foreground">
-                          <span>lățime 1.50 m</span>
+                          <span>{t('sizeWidth150') || 'lățime 1.50 m'}</span>
                           <span className="text-primary font-semibold">{model.width150} lei</span>
                         </div>
                       )}
                       {model.length200 && (
                         <div className="flex justify-between items-center text-muted-foreground">
-                          <span>lungime 2 m</span>
+                          <span>{t('sizeLength200') || 'lungime 2 m'}</span>
                           <span className="text-primary font-semibold">{model.length200} lei</span>
                         </div>
                       )}
@@ -240,8 +240,8 @@ const Models = () => {
         {activeTab === 'corporate' && (
           <>
             <div className="text-center mb-12 fade-in max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold mb-4">Ceasuri personalizate pentru companii</h2>
-              <p className="text-xl text-muted-foreground">Logo-ul companiei tale, integrat într-un ceas unic, premium și realizat manual.</p>
+              <h2 className="text-4xl font-bold mb-4">{t('corporateTitle') || 'Ceasuri personalizate pentru companii'}</h2>
+              <p className="text-xl text-muted-foreground">{t('corporateSubtitle') || 'Logo-ul companiei tale, integrat într-un ceas unic, premium și realizat manual.'}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -273,8 +273,8 @@ const Models = () => {
         {activeTab === 'kids' && (
           <>
             <div className="text-center mb-12 fade-in max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold mb-4">Ceasuri pentru copii</h2>
-              <p className="text-xl text-muted-foreground">Transformă camera copilului tău într-un spațiu plin de magie cu un ceas de perete din lemn natur, imprimat vibrant și creat pe gustul lui! Fiecare model se poate personaliza gratuit cu numele micuțului sau cu mesajul tău de suflet, fiind cadoul ideal care îmbină educația cu un decor de poveste.</p>
+              <h2 className="text-4xl font-bold mb-4">{t('kidsSectionTitle') || 'Ceasuri pentru copii'}</h2>
+              <p className="text-xl text-muted-foreground">{t('kidsSectionSubtitle') || 'Transformă camera copilului tău într-un spațiu plin de magie cu un ceas de perete din lemn natur, imprimat vibrant și creat pe gustul lui! Fiecare model se poate personaliza gratuit cu numele micuțului sau cu mesajul tău de suflet, fiind cadoul ideal care îmbină educația cu un decor de poveste.'}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

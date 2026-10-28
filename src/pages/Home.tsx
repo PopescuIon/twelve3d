@@ -89,7 +89,7 @@ const Home = () => {
             {t('popularModelsTitle')}
           </h2>
           <p className="text-center text-sm md:text-base text-muted-foreground mb-8 px-4 max-w-3xl mx-auto fade-in">
-            Inscripțiile din imagini sunt cu scop de prezentare. Prețul include doar ceasul standard, fără inscripții. Putem personaliza orice model în funcție de preferințe - contactați-ne în privat.
+            {t('modelsDisclaimer') || 'Inscripțiile din imagini sunt cu scop de prezentare. Prețul include doar ceasul standard, fără inscripții. Putem personaliza orice model în funcție de preferințe - contactați-ne în privat.'}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
