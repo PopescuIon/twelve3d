@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { describe, it as test } from 'node:test';
 import assert from 'node:assert/strict';
 import { contactSchema } from './contact-schema';
