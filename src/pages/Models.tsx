@@ -304,6 +304,9 @@ const Models = () => {
             <ContactSection />
           </>
         )}
+      </div>
+
+      <ImageModal
         isOpen={modalImage !== null}
         imageSrc={modalImage?.src || ''}
         imageAlt={modalImage?.alt || ''}
