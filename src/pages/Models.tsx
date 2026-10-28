@@ -28,13 +28,13 @@ import corporate3 from '@/assets/corporate-7.jpg';
 import corporate4 from '@/assets/corporate-4.jpg';
 
 // Import kids clock images
-import kidsChampion from '@/assets/kids-champion.jpg.asset.json';
-import kidsHero from '@/assets/kids-hero.jpg.asset.json';
-import kidsCosmos from '@/assets/kids-cosmos.jpg.asset.json';
-import kidsForest from '@/assets/kids-forest.jpg.asset.json';
-import kidsDream from '@/assets/kids-dream.jpg.asset.json';
-import kidsUnicorn from '@/assets/kids-unicorn.jpg.asset.json';
-import kidsSweet from '@/assets/kids-sweet.jpg.asset.json';
+import kidsChampion from '@/assets/kids-champion.jpg';
+import kidsHero from '@/assets/kids-hero.jpg';
+import kidsCosmos from '@/assets/kids-cosmos.jpg';
+import kidsForest from '@/assets/kids-forest.jpg';
+import kidsDream from '@/assets/kids-dream.jpg';
+import kidsUnicorn from '@/assets/kids-unicorn.jpg';
+import kidsSweet from '@/assets/kids-sweet.jpg';
 
 const Models = () => {
   const { t } = useLanguage();
