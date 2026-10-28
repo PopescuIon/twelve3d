@@ -157,7 +157,7 @@ const Models = () => {
             onClick={() => setActiveTab('models')}
             className="rounded-full px-8"
           >
-            {t('models')}
+            {t('decorativeClocks') || 'Ceasuri Decorative'}
           </Button>
           <Button
             variant={activeTab === 'corporate' ? 'default' : 'outline'}
