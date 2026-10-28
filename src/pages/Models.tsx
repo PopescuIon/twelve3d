@@ -63,13 +63,13 @@ const Models = () => {
   ];
 
   const kidsModels = [
-    { id: 1, name: 'Model Champion', image: kidsChampion },
-    { id: 2, name: 'Model Hero', image: kidsHero },
-    { id: 3, name: 'Model Cosmos', image: kidsCosmos },
-    { id: 4, name: 'Model Forest', image: kidsForest },
-    { id: 5, name: 'Model Dream', image: kidsDream },
-    { id: 6, name: 'Model Unicorn', image: kidsUnicorn },
-    { id: 7, name: 'Model Sweet', image: kidsSweet },
+    { id: 1, name: 'Model Champion', image: kidsChampion, price40: 899 },
+    { id: 2, name: 'Model Hero', image: kidsHero, price40: 899 },
+    { id: 3, name: 'Model Cosmos', image: kidsCosmos, price40: 899 },
+    { id: 4, name: 'Model Forest', image: kidsForest, price40: 899 },
+    { id: 5, name: 'Model Dream', image: kidsDream, price40: 899 },
+    { id: 6, name: 'Model Unicorn', image: kidsUnicorn, price40: 899 },
+    { id: 7, name: 'Model Sweet', image: kidsSweet, price40: 899 },
   ];
 
   const corporateModels = [
@@ -161,6 +161,13 @@ const Models = () => {
             className="rounded-full px-8"
           >
             {t('corporateClocks') || 'Ceasuri Corporate'}
+          </Button>
+          <Button
+            variant={activeTab === 'kids' ? 'default' : 'outline'}
+            onClick={() => setActiveTab('kids')}
+            className="rounded-full px-8"
+          >
+            {t('kidsClocks') || 'Ceasuri pentru copii'}
           </Button>
         </div>
 
