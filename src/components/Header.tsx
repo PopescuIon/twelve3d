@@ -95,6 +95,15 @@ const Header = () => {
             >
               {t('corporateClocks')}
             </Link>
+            <Link
+              to="/models?tab=kids"
+              onClick={() => setIsOpen(false)}
+              className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
+                location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+              }`}
+            >
+              {t('kidsClocks') || 'Ceasuri pentru copii'}
+            </Link>
             <button
               onClick={() => handleSectionClick('about')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
@@ -181,6 +190,15 @@ const Header = () => {
                   }`}
                 >
                   {t('corporateClocks')}
+                </Link>
+                <Link
+                  to="/models?tab=kids"
+                  onClick={() => setIsOpen(false)}
+                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
+                    location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                  }`}
+                >
+                  {t('kidsClocks') || 'Ceasuri pentru copii'}
                 </Link>
                 <button
                   onClick={() => handleSectionClick('about')}
