@@ -168,15 +168,37 @@ const Header = () => {
                 >
                   {t('home')}
                 </button>
-                <Link
-                  to="/models"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
-                    isActive('/models') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('models')}
-                </Link>
+                <div>
+                  <Link
+                    to="/models"
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
+                      isActive('/models') && !location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {t('models')}
+                  </Link>
+                  <div className="flex flex-col gap-3 mt-3 pl-5 border-l border-border ml-1">
+                    <Link
+                      to="/corporate"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-base transition-colors hover:text-primary cursor-pointer ${
+                        isActive('/corporate') ? 'text-primary' : 'text-foreground'
+                      }`}
+                    >
+                      {t('corporateClocks')}
+                    </Link>
+                    <Link
+                      to="/models?tab=kids"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-base transition-colors hover:text-primary cursor-pointer ${
+                        location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                      }`}
+                    >
+                      {t('kidsClocks') || 'Ceasuri pentru copii'}
+                    </Link>
+                  </div>
+                </div>
                 <button
                   onClick={() => handleSectionClick('twelve-set')}
                   className="text-lg font-medium transition-colors hover:text-primary text-foreground text-left"
