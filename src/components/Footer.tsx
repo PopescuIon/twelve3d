@@ -55,10 +55,13 @@ const Footer = () => {
               {t('home')}
             </button>
             <Link to="/models" className="text-sm hover:text-primary transition-colors cursor-pointer">
-              {t('models')}
+              {t('decorativeClocks') || 'Ceasuri Decorative'}
             </Link>
             <Link to="/corporate" className="text-sm hover:text-primary transition-colors cursor-pointer">
               {t('corporateClocks')}
+            </Link>
+            <Link to="/models?tab=kids" className="text-sm hover:text-primary transition-colors cursor-pointer">
+              {t('kidsClocks') || 'Ceasuri pentru Copii'}
             </Link>
             <button
               onClick={() => handleSectionClick('about')}

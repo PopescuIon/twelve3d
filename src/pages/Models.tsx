@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import { Mail, Phone } from 'lucide-react';
@@ -38,6 +39,7 @@ import kidsSweet from '@/assets/kids-sweet.jpg';
 
 const Models = () => {
   const { t } = useLanguage();
+  const location = useLocation();
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
   const [activeTab, setActiveTab] = useState<'models' | 'corporate' | 'kids'>(() => {
     const params = new URLSearchParams(window.location.search);
@@ -49,6 +51,16 @@ const Models = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Sync tab with ?tab= query param when navigating while already on the page
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tab = params.get('tab');
+    if (tab === 'kids') setActiveTab('kids');
+    else if (tab === 'corporate') setActiveTab('corporate');
+    else setActiveTab('models');
+    window.scrollTo(0, 0);
+  }, [location.search]);
 
   const models = [
     { id: 1, name: 'Model Retro', image: modelRetroCustom, price80: 898, price100: 998 },
