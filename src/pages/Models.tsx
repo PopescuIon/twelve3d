@@ -27,10 +27,19 @@ import corporate2 from '@/assets/corporate-6.jpg';
 import corporate3 from '@/assets/corporate-7.jpg';
 import corporate4 from '@/assets/corporate-4.jpg';
 
+// Import kids clock images
+import kidsChampion from '@/assets/kids-champion.jpg.asset.json';
+import kidsHero from '@/assets/kids-hero.jpg.asset.json';
+import kidsCosmos from '@/assets/kids-cosmos.jpg.asset.json';
+import kidsForest from '@/assets/kids-forest.jpg.asset.json';
+import kidsDream from '@/assets/kids-dream.jpg.asset.json';
+import kidsUnicorn from '@/assets/kids-unicorn.jpg.asset.json';
+import kidsSweet from '@/assets/kids-sweet.jpg.asset.json';
+
 const Models = () => {
   const { t } = useLanguage();
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
-  const [activeTab, setActiveTab] = useState<'models' | 'corporate'>('models');
+  const [activeTab, setActiveTab] = useState<'models' | 'corporate' | 'kids'>('models');
 
   // Scroll to top when page loads
   useEffect(() => {
@@ -51,6 +60,16 @@ const Models = () => {
     { id: 11, name: 'Ceas pe Oglindă', image: modelOglinda, price60: 1949 },
     { id: 12, name: 'Home + Ceas', image: modelHomeclock, width150: 1850 },
     { id: 13, name: 'Home Sweet Home', image: modelHomesweet, length200: 2500 },
+  ];
+
+  const kidsModels = [
+    { id: 1, name: 'Model Champion', image: kidsChampion },
+    { id: 2, name: 'Model Hero', image: kidsHero },
+    { id: 3, name: 'Model Cosmos', image: kidsCosmos },
+    { id: 4, name: 'Model Forest', image: kidsForest },
+    { id: 5, name: 'Model Dream', image: kidsDream },
+    { id: 6, name: 'Model Unicorn', image: kidsUnicorn },
+    { id: 7, name: 'Model Sweet', image: kidsSweet },
   ];
 
   const corporateModels = [
