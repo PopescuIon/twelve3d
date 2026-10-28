@@ -100,7 +100,8 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.tiktok.com/@twelve.wall.clocks?_t=ZM-8wsF2NKJ7cW&_r=1"
+                href="https://www.tiktok.com/@twelve.ceasuri.perete"
+                aria-label="TikTok Twelve"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:scale-110 hover:brightness-110 transition-all duration-300"
