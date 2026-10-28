@@ -217,13 +217,13 @@ const Models = () => {
                       )}
                       {model.width150 && (
                         <div className="flex justify-between items-center text-muted-foreground">
-                          <span>lățime 1.50 m</span>
+                          <span>{t('sizeWidth150') || 'lățime 1.50 m'}</span>
                           <span className="text-primary font-semibold">{model.width150} lei</span>
                         </div>
                       )}
                       {model.length200 && (
                         <div className="flex justify-between items-center text-muted-foreground">
-                          <span>lungime 2 m</span>
+                          <span>{t('sizeLength200') || 'lungime 2 m'}</span>
                           <span className="text-primary font-semibold">{model.length200} lei</span>
                         </div>
                       )}
@@ -240,8 +240,8 @@ const Models = () => {
         {activeTab === 'corporate' && (
           <>
             <div className="text-center mb-12 fade-in max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold mb-4">Ceasuri personalizate pentru companii</h2>
-              <p className="text-xl text-muted-foreground">Logo-ul companiei tale, integrat într-un ceas unic, premium și realizat manual.</p>
+              <h2 className="text-4xl font-bold mb-4">{t('corporateTitle') || 'Ceasuri personalizate pentru companii'}</h2>
+              <p className="text-xl text-muted-foreground">{t('corporateSubtitle') || 'Logo-ul companiei tale, integrat într-un ceas unic, premium și realizat manual.'}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
