@@ -65,15 +65,40 @@ const Header = () => {
             >
               {t('home')}
             </button>
-            <Link
-              to="/models"
-              onClick={() => setIsOpen(false)}
-              className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
-                isActive('/models') ? 'text-primary' : 'text-foreground'
-              }`}
-            >
-              {t('models')}
-            </Link>
+            <div className="relative group">
+              <Link
+                to="/models"
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
+                  isActive('/models') && !location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                }`}
+              >
+                {t('models')}
+              </Link>
+              {/* Sub-tab dropdown on hover */}
+              <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="bg-background border border-border rounded-xl shadow-lg py-2 min-w-[220px]">
+                  <Link
+                    to="/corporate"
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-primary hover:bg-secondary ${
+                      isActive('/corporate') ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {t('corporateClocks')}
+                  </Link>
+                  <Link
+                    to="/models?tab=kids"
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-primary hover:bg-secondary ${
+                      location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {t('kidsClocks') || 'Ceasuri pentru copii'}
+                  </Link>
+                </div>
+              </div>
+            </div>
             <button
               onClick={() => handleSectionClick('twelve-set')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
@@ -86,24 +111,6 @@ const Header = () => {
             >
               {t('testimonials')}
             </button>
-            <Link
-              to="/corporate"
-              onClick={() => setIsOpen(false)}
-              className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
-                isActive('/corporate') ? 'text-primary' : 'text-foreground'
-              }`}
-            >
-              {t('corporateClocks')}
-            </Link>
-            <Link
-              to="/models?tab=kids"
-              onClick={() => setIsOpen(false)}
-              className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
-                location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
-              }`}
-            >
-              {t('kidsClocks') || 'Ceasuri pentru copii'}
-            </Link>
             <button
               onClick={() => handleSectionClick('about')}
               className="text-sm font-medium transition-colors hover:text-primary text-foreground"
@@ -161,15 +168,37 @@ const Header = () => {
                 >
                   {t('home')}
                 </button>
-                <Link
-                  to="/models"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
-                    isActive('/models') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('models')}
-                </Link>
+                <div>
+                  <Link
+                    to="/models"
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
+                      isActive('/models') && !location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {t('models')}
+                  </Link>
+                  <div className="flex flex-col gap-3 mt-3 pl-5 border-l border-border ml-1">
+                    <Link
+                      to="/corporate"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-base transition-colors hover:text-primary cursor-pointer ${
+                        isActive('/corporate') ? 'text-primary' : 'text-foreground'
+                      }`}
+                    >
+                      {t('corporateClocks')}
+                    </Link>
+                    <Link
+                      to="/models?tab=kids"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-base transition-colors hover:text-primary cursor-pointer ${
+                        location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
+                      }`}
+                    >
+                      {t('kidsClocks') || 'Ceasuri pentru copii'}
+                    </Link>
+                  </div>
+                </div>
                 <button
                   onClick={() => handleSectionClick('twelve-set')}
                   className="text-lg font-medium transition-colors hover:text-primary text-foreground text-left"
@@ -182,24 +211,6 @@ const Header = () => {
                 >
                   {t('testimonials')}
                 </button>
-                <Link
-                  to="/corporate"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
-                    isActive('/corporate') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('corporateClocks')}
-                </Link>
-                <Link
-                  to="/models?tab=kids"
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
-                    location.pathname === '/models' && location.search.includes('tab=kids') ? 'text-primary' : 'text-foreground'
-                  }`}
-                >
-                  {t('kidsClocks') || 'Ceasuri pentru copii'}
-                </Link>
                 <button
                   onClick={() => handleSectionClick('about')}
                   className="text-lg font-medium transition-colors hover:text-primary text-foreground text-left"
