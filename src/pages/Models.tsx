@@ -63,13 +63,13 @@ const Models = () => {
   ];
 
   const kidsModels = [
-    { id: 1, name: 'Model Champion', image: kidsChampion.url, price40: 899 },
-    { id: 2, name: 'Model Hero', image: kidsHero.url, price40: 899 },
-    { id: 3, name: 'Model Cosmos', image: kidsCosmos.url, price40: 899 },
-    { id: 4, name: 'Model Forest', image: kidsForest.url, price40: 899 },
-    { id: 5, name: 'Model Dream', image: kidsDream.url, price40: 899 },
-    { id: 6, name: 'Model Unicorn', image: kidsUnicorn.url, price40: 899 },
-    { id: 7, name: 'Model Sweet', image: kidsSweet.url, price40: 899 },
+    { id: 1, name: 'Model Champion', image: kidsChampion, price40: 899 },
+    { id: 2, name: 'Model Hero', image: kidsHero, price40: 899 },
+    { id: 3, name: 'Model Cosmos', image: kidsCosmos, price40: 899 },
+    { id: 4, name: 'Model Forest', image: kidsForest, price40: 899 },
+    { id: 5, name: 'Model Dream', image: kidsDream, price40: 899 },
+    { id: 6, name: 'Model Unicorn', image: kidsUnicorn, price40: 899 },
+    { id: 7, name: 'Model Sweet', image: kidsSweet, price40: 899 },
   ];
 
   const corporateModels = [
