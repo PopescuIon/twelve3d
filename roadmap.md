@@ -6,3 +6,4 @@
 - [ ] Check backend and run deep security review.
 - [ ] Fix verified security vulnerabilities and check contact/navigation regressions.
 - [ ] Review the site generally and report prioritized improvements without redesigning it.
+- [ ] Update and check the TikTok link for @twelve.ceasuri.perete.
