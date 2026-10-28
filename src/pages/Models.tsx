@@ -274,7 +274,7 @@ const Models = () => {
           <>
             <div className="text-center mb-12 fade-in max-w-3xl mx-auto">
               <h2 className="text-4xl font-bold mb-4">Ceasuri pentru copii</h2>
-              <p className="text-xl text-muted-foreground">Ceasuri vesele și colorate, realizate manual, perfecte pentru camera celor mici.</p>
+              <p className="text-xl text-muted-foreground">Transformă camera copilului tău într-un spațiu plin de magie cu un ceas de perete din lemn natur, imprimat vibrant și creat pe gustul lui! Fiecare model se poate personaliza gratuit cu numele micuțului sau cu mesajul tău de suflet, fiind cadoul ideal care îmbină educația cu un decor de poveste.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
