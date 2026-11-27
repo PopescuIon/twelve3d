@@ -49,8 +49,8 @@ All colors MUST be HSL.
 
     --promo-bg: 0 0% 0%;
     --promo-fg: 0 0% 100%;
-    --promo-accent: 46 65% 52%;
-    --promo-accent-fg: 0 0% 0%;
+    --promo-accent: 25 91% 58%;
+    --promo-accent-fg: 0 0% 100%;
     --promo-muted: 0 0% 64%;
     --promo-border: 0 0% 16%;
   }
@@ -94,8 +94,8 @@ All colors MUST be HSL.
 
     --promo-bg: 0 0% 0%;
     --promo-fg: 0 0% 100%;
-    --promo-accent: 46 65% 52%;
-    --promo-accent-fg: 0 0% 0%;
+    --promo-accent: 25 91% 58%;
+    --promo-accent-fg: 0 0% 100%;
     --promo-muted: 0 0% 64%;
     --promo-border: 0 0% 16%;
   }

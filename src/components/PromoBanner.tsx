@@ -63,27 +63,27 @@ const PromoBanner = ({ onHeightChange }: PromoBannerProps) => {
       role="region"
       aria-label="Black Friday"
       data-testid="promo-banner"
-      className="relative w-full bg-promo text-promo-foreground border-b border-promo-border px-8 sm:px-10 py-1.5"
+      className="relative w-full bg-promo text-promo-foreground border-b border-promo-border px-8 sm:px-10 py-2"
     >
-      <div className="mx-auto max-w-7xl flex flex-col items-center justify-center text-center">
-        <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1">
+      <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center sm:items-stretch justify-center gap-y-1.5 sm:gap-x-4 text-center">
+        <div className="flex flex-col items-center justify-center">
           <p className="text-[11px] sm:text-xs font-semibold tracking-tight leading-snug">
             <span className="text-promo-accent font-extrabold tracking-wide mr-1.5">
               {t('promoBadge')}
             </span>
             <span>{t('promoMessage')}</span>
           </p>
-          <button
-            type="button"
-            onClick={handleOfferClick}
-            className="inline-flex items-center justify-center rounded-full bg-promo-accent text-promo-accent-foreground hover:bg-promo-accent/90 active:scale-95 transition-all font-bold text-[11px] sm:text-xs px-3 py-0.5 leading-tight whitespace-nowrap shrink-0 cursor-pointer"
-          >
-            {t('promoCta')}
-          </button>
+          <p className="text-[10px] sm:text-[11px] leading-tight text-promo-muted mt-0.5">
+            {t('promoPeriod')}
+          </p>
         </div>
-        <p className="text-[10px] sm:text-[11px] leading-tight text-promo-muted mt-0.5">
-          {t('promoPeriod')}
-        </p>
+        <button
+          type="button"
+          onClick={handleOfferClick}
+          className="inline-flex items-center justify-center rounded-full bg-promo-accent text-promo-accent-foreground hover:bg-promo-accent/90 active:scale-95 transition-all font-bold text-xs sm:text-sm px-5 py-1.5 sm:py-0 whitespace-nowrap shrink-0 cursor-pointer"
+        >
+          {t('promoCta')}
+        </button>
       </div>
       <button
         type="button"
