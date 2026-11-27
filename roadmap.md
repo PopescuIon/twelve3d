@@ -8,3 +8,7 @@
 - [x] Review the site generally and report prioritized improvements without redesigning it.
 - [x] Update and check the TikTok link for @twelve.ceasuri.perete.
 - [ ] Configure server-validated anti-bot email delivery: blocked on email/CAPTCHA service configuration; current EmailJS delivery retained.
+
+## Black Friday banner
+- [x] Add compact top Black Friday banner with orange accent and two-row-tall rounded button.
+- [x] Simulate December 1 (00:00:00) to verify the banner disappears completely, then restore normal date.
