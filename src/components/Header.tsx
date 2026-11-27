@@ -2,15 +2,17 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import logo from '@/assets/logo.png';
+import PromoBanner from '@/components/PromoBanner';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [bannerHeight, setBannerHeight] = useState(0);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -48,8 +50,11 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4 py-3 md:py-4">
+    <>
+      <div className="fixed top-0 left-0 right-0 z-40">
+        <PromoBanner onHeightChange={setBannerHeight} />
+        <header className="w-full bg-background/95 backdrop-blur-sm border-b border-border">
+          <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="flex items-center justify-between">
           <button onClick={handleHomeClick} className="flex items-center cursor-pointer">
             <img src={logo} alt="Twelve" className="h-10 md:h-12 w-auto" />
@@ -271,8 +276,11 @@ const Header = () => {
             </SheetContent>
           </Sheet>
         </div>
+          </div>
+        </header>
       </div>
-    </header>
+      {bannerHeight > 0 && <div aria-hidden="true" style={{ height: bannerHeight }} />}
+    </>
   );
 };
 

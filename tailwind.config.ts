@@ -60,6 +60,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        promo: {
+          DEFAULT: "hsl(var(--promo-bg))",
+          foreground: "hsl(var(--promo-fg))",
+          accent: "hsl(var(--promo-accent))",
+          "accent-foreground": "hsl(var(--promo-accent-fg))",
+          muted: "hsl(var(--promo-muted))",
+          border: "hsl(var(--promo-border))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
